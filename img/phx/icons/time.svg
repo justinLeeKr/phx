@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95.42 104.98">
+  <path d="M47.71,104.98C21.4,104.98,0,83.58,0,57.27S21.4,9.56,47.71,9.56s47.71,21.4,47.71,47.71-21.4,47.71-47.71,47.71ZM47.71,14.61C24.19,14.61,5.05,33.75,5.05,57.27s19.14,42.66,42.66,42.66,42.66-19.14,42.66-42.66S71.23,14.61,47.71,14.61Z"/>
+  <g>
+    <rect x="45.19" y="18.8" width="5.05" height="5"/>
+    <rect x="27.2" y="23.62" width="5.05" height="5" transform="translate(-9.08 18.36) rotate(-29.99)"/>
+    <rect x="14.03" y="36.79" width="5.05" height="5" transform="translate(-25.74 33.98) rotate(-60)"/>
+    <rect x="9.24" y="54.75" width="5" height="5.05"/>
+    <rect x="14.06" y="72.73" width="5" height="5.05" transform="translate(-35.42 18.38) rotate(-30.01)"/>
+    <rect x="27.23" y="85.9" width="5" height="5.05" transform="translate(-61.72 69.97) rotate(-60.01)"/>
+    <rect x="45.19" y="90.74" width="5.05" height="5"/>
+    <rect x="63.17" y="85.92" width="5.05" height="5" transform="translate(-35.4 44.68) rotate(-29.99)"/>
+    <rect x="76.34" y="72.76" width="5.05" height="5" transform="translate(-25.75 105.91) rotate(-59.99)"/>
+    <rect x="81.18" y="54.75" width="5" height="5.05"/>
+    <rect x="76.36" y="36.76" width="5" height="5.05" transform="translate(-9.08 44.72) rotate(-30.01)"/>
+    <rect x="63.2" y="23.6" width="5" height="5.05" transform="translate(10.23 69.96) rotate(-60.01)"/>
+  </g>
+  <rect x="45.19" y="30.8" width="5.05" height="26.47"/>
+  <rect x="31.68" width="32.06" height="5.05"/>
+  <path d="M13.44,19.78l-3.41-3.73c3.36-3.07,7.08-5.72,11.05-7.88l2.41,4.44c-3.62,1.97-7,4.38-10.06,7.17Z"/>
+  <path d="M81.98,19.78c-3.06-2.79-6.44-5.21-10.06-7.17l2.41-4.44c3.98,2.16,7.7,4.81,11.05,7.88l-3.41,3.73Z"/>
+  <polygon points="57.41 12.65 52.36 12.65 52.36 5.05 43.06 5.05 43.06 12.65 38.01 12.65 38.01 0 57.41 0 57.41 12.65"/>
+</svg>

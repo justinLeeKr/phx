@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+		<title>전국 대리점 안내 | 피닉스 업소용 식기세척기</title>
+		<meta name="keywords" content="피닉스 대리점, 식기세척기 대리점, 전국 대리점">
+		<meta name="description" content="전국 지도를 선택해 가까운 피닉스 대리점의 연락처를 확인하세요.">
+		<meta name="author" content="피닉스">
+
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+		<link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CRoboto+Slab:300,400,700,900&display=swap" rel="stylesheet" type="text/css">
+
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/theme-elements.css">
+		<link rel="stylesheet" href="css/theme-blog.css">
+		<link rel="stylesheet" href="css/theme-shop.css">
+		<link rel="stylesheet" href="css/phx.css">
+		<link id="skinCSS" rel="stylesheet" href="css/skin.css">
+		<link rel="stylesheet" href="css/custom.css">
+		<style>
+			@keyframes dealer-region-flash {
+				0%, 14%, 100% {
+					fill: #eaf2f7;
+					stroke: #58788c;
+				}
+				3%, 12% {
+					fill: #d4e7f2;
+					stroke: #40596b;
+				}
+			}
+
+			#dealer-map.is-revealing [data-region] polygon {
+				animation: dealer-region-flash var(--region-reveal-duration, 1360ms) ease-in-out 3 both;
+				animation-delay: var(--region-reveal-delay, 0ms);
+			}
+
+			@media (prefers-reduced-motion: reduce) {
+				#dealer-map.is-revealing [data-region] polygon {
+					animation: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="body">
+			<div data-gnb></div>
+
+			<div class="owl-carousel-wrapper position-relative" style="height: 350px">
+				<div class="owl-carousel dots-inside dots-horizontal-center show-dots-hover nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
+					<div class="position-relative bg-color-primary" data-dynamic-height="['350px','350px','350px','350px','350px']" style="height: 350px;">
+						<div class="container position-relative z-index-3 h-100">
+							<div class="row justify-content-start align-items-center h-100">
+								<div class="col-lg-6">
+									<div class="d-flex flex-column align-items-start">
+										<h3 class="position-relative text-color-light text-5 line-height-5 font-weight-medium px-1 mb-2 appear-animation" data-appear-animation="fadeInDownShorter" data-plugin-options="{'minWindowWidth': 0}">
+											대리점 안내
+											<span class="position-absolute left-100pct top-50pct transform3dy-n50 opacity-3">
+												<img src="img/slides/slide-title-border.png" class="w-auto appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="250" data-plugin-options="{'minWindowWidth': 0}" alt="" />
+											</span>
+										</h3>
+										<h2 class="text-color-light font-weight-extra-bold text-12 line-height-2 mb-3 appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">전국 대리점 안내</h2>
+										<ul class="breadcrumb d-block breadcrumb-light">
+											<li><a href="0_index_v1.html">Home</a></li>
+											<li class="active">전국 대리점 안내</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div role="main" class="main">
+				<section class="container py-5 my-3" aria-labelledby="dealers-title">
+					<div class="row mb-4">
+						<div class="col-lg-8">
+							<div class="d-flex align-items-center mb-2">
+								<span class="custom-line"></span>
+								<div class="overflow-hidden ms-3">
+									<h2 class="text-color-primary font-weight-semibold line-height-3 text-2 mb-0">DEALER NETWORK</h2>
+								</div>
+							</div>
+							<h2 id="dealers-title" class="text-color-secondary font-weight-bold text-transform-none text-8 mb-2">가까운 대리점 찾기</h2>
+							<p class="mb-0">전국 지도에서 시·도를 선택하면 해당 지역의 대리점과 대표 전화번호를 확인할 수 있습니다.</p>
+						</div>
+					</div>
+
+					<div class="row align-items-start">
+						<div class="col-lg-6 mb-4 mb-lg-0">
+							<div class="card border-color-grey-500 border-radius-2">
+								<div class="card-body p-3 p-md-4">
+									<p class="text-2 text-color-secondary mb-3">지역을 선택해 주세요</p>
+									<svg id="dealer-map" class="w-100 h-auto" viewBox="0 0 350 510" role="group" aria-label="대한민국 지역별 대리점 선택 지도">
+										<a href="#dealer-info" data-region="jeju" role="button" aria-label="제주 대리점 선택" aria-pressed="false">
+											<polygon points="120.7,459.5 114.6,455.7 92.8,459.1 76.8,466.3 70.3,473.1 70.3,477.7 76.8,483.8 79.9,480 100.1,480.7 102.8,477.7 115,475.4 122.3,466.7" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="95.3" y="469.7" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">제주</text>
+										</a>
+										<a href="#dealer-info" data-region="junnam" role="button" aria-label="전남 대리점 선택" aria-pressed="false">
+											<polygon points="165.4,303.6 162.4,302.9 158.2,306.7 142.5,307.8 141.4,306.3 134.9,307.4 131.8,305.5 133,301.4 129.9,299.8 129.5,294.5 126.5,299.1 124.2,299.5 116.2,293 112.7,295.3 108.1,304.4 103.9,306.7 100.9,304.8 99.7,308.2 96.7,308.6 93.6,306.7 90.2,297.9 88.3,297.2 80.2,313.5 90.6,324.5 89.8,329.1 82.9,332.9 87.1,334.8 86.4,346.6 84.4,349.6 90.6,348.5 95.1,350.4 94,353.4 89.8,352.7 85.2,354.6 93.2,356.5 95.5,361.8 90.9,362.5 86.4,358 84.8,362.2 90.6,366.7 87.5,368.6 82.5,365.6 79.1,354.9 77.2,360.6 81,368.6 86.4,370.1 91.7,374.7 91.7,379.6 95.1,381.2 92.8,386.5 95.9,386.9 95.5,390.3 100.1,388.8 100.9,383.1 109.7,375.8 112.3,364.4 114.6,365.6 115,377 119.2,379.6 122.7,378.5 126.1,375.1 128,364.8 137.6,357.2 141.8,357.6 145.2,352.3 147.9,354.2 152.8,353 153.6,359.9 150.2,362.2 147.9,358.7 146.3,364.1 142.9,364.4 138.7,370.9 139.8,372.4 148.3,372.8 151.3,377.4 152.1,375.5 155.5,375.1 158.6,371.7 153.2,370.9 152.5,367.5 154,366 163.9,366.3 155.1,356.5 155.5,345.8 162.4,345.4 163.9,342.8 166.2,342.8 172.3,353 169.7,361 173.9,363.3 172.3,357.6 175.4,353.4 178.4,352.7 180.3,355.3 182.3,353 183.4,346.6 173.9,348.1 170.8,345.1 170,339.7 173.5,338.6 175.8,340.1 178.4,336.3 182.3,335.6 183.4,329.5 171.2,317.7 168.5,307.4" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="119.7" y="333" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">전남</text>
+										</a>
+										<a href="#dealer-info" data-region="kwangjoo" role="button" aria-label="광주 대리점 선택" aria-pressed="false">
+											<polygon points="128,318.5 120.4,312.8 116.5,315 109.3,314.3 104.7,321.1 111.2,322.6 114.6,327.2 118.8,324.9 126.9,324.5" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="120.2" y="319.3" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="8">광주</text>
+										</a>
+										<a href="#dealer-info" data-region="junbook" role="button" aria-label="전북 대리점 선택" aria-pressed="false">
+											<polygon points="97.8,250.1 102,251.6 102.4,255.8 105.8,254.2 111.6,255 113.9,253.1 116.5,253.1 117.3,255.8 113.5,259.9 108.5,259.9 114.2,264.1 113.5,267.2 103.5,266 102.4,270.6 90.6,279.3 93.2,281.6 105.1,282 105.1,283.9 100.1,287.3 92.8,289.2 89.4,294.5 92.1,296 96.7,305.9 100.1,302.1 103.5,303.3 106.6,301.7 110.8,293.4 114.6,290.7 120,291.5 124.6,296.8 127.6,292.6 131.4,292.6 133,294.5 132.2,298.3 135.3,299.8 134.5,304.4 136,305.2 142.5,303.6 143.7,305.2 151.3,305.5 153.6,303.6 156.7,304.4 160.1,301 165.1,300.6 171.9,305.5 173.1,298.7 175.8,296.4 173.9,294.9 174.2,291.1 170.8,285.8 170.8,282 176.1,265.3 186.8,257.3 189.9,256.9 193,250.8 188.8,245.5 184.6,247.4 177.7,243.6 170.4,248.2 162.4,248.9 152.5,241.7 151.3,237.9 139.8,240.2 136,238.7 134.1,235.2 126.5,234.5 123.4,235.2 116.5,245.1 112.7,245.9 110.8,248.5" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="141.9" y="267.5" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">전북</text>
+										</a>
+										<a href="#dealer-info" data-region="kyungnam" role="button" aria-label="경남 대리점 선택" aria-pressed="false">
+											<polygon points="171.6,309.7 173.1,315.8 185.3,327.6 184.9,335.6 192.6,335.6 194.9,330.2 199.8,333.3 198.7,328.3 204.4,325.7 204.8,337.5 207.9,337.5 209.4,340.1 213.6,340.1 214.7,337.1 219.7,337.1 221.2,339 221.6,335.9 225.1,334.8 226.6,340.1 224.3,342.4 229.6,342 231.2,337.5 229.3,332.9 235,331.4 233.5,329.5 229.6,332.1 226.2,330.6 227.7,326.8 233.5,326.4 231.6,325.3 232.7,322.6 240.7,322.6 243,324.9 242.2,326.8 244.2,326.8 244.5,324.2 241.1,319.2 244.9,316.9 246.8,319.6 250.3,319.2 252.9,323.4 259.4,324.2 257.9,322.3 259.1,319.2 262.1,319.2 265.2,313.9 270.9,313.5 273.6,309.7 279.7,306.7 281.6,301 285.8,300.6 287.3,297.9 272.1,287.7 274,282.7 272.4,280.5 265.6,279.7 263.3,282.7 255.2,285.8 249.5,283.5 242.6,284.3 238,278.2 229.6,281.2 223.9,278.9 214.7,278.6 212.8,276.7 212.1,269.1 207.9,265.3 207.5,262.6 201.4,263 197.5,258.8 194.1,259.6 192.6,258 178.4,266.8 173.1,283.5 178.4,297.2 175.4,299.8 175.4,305.5" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="215.6" y="303.5" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">경남</text>
+										</a>
+										<a href="#dealer-info" data-region="busan" role="button" aria-label="부산 대리점 선택" aria-pressed="false">
+											<polygon points="291.2,301 283.1,303.3 281.6,308.6 275.5,311.6 271.7,316.2 265.6,316.6 264.4,320.7 260.6,321.5 261.7,323.4 269,323.8 272.1,328 276.3,321.5 280.8,323 281.6,320.4 288.5,316.2 290,305.5 291.9,304" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="279.6" y="315.5" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">부산</text>
+										</a>
+										<a href="#dealer-info" data-region="ulsan" role="button" aria-label="울산 대리점 선택" aria-pressed="false">
+											<polygon points="280.8,272.9 279.3,277.8 275.9,279.7 274.7,286.5 287.7,294.1 289.6,297.9 293.4,299.8 294.2,304 297.7,301 299.2,288.4 301.9,288.1 303,290.7 305.3,281.6 303.8,277.4 293.4,278.2 288.1,272.5" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="286.7" y="283.5" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">울산</text>
+										</a>
+										<a href="#dealer-info" data-region="taekoo" role="button" aria-label="대구 대리점 선택" aria-pressed="false">
+											<polygon points="249.5,247.4 239.6,251.2 238,256.1 231.2,254.6 230.4,257.7 234.2,258.8 235.4,262.2 230.4,266 231.6,272.9 228.1,274.4 229.6,277.8 235.8,277 239.6,268.7 243.4,267.9 247.2,270.2 251.4,266.8 254.5,253.5" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="245.1" y="259.4" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">대구</text>
+										</a>
+										<a href="#dealer-info" data-region="kyungbuk" role="button" aria-label="경북 대리점 선택" aria-pressed="false">
+											<polygon points="298,148.2 290,157 286.2,156.6 282,152.4 276.6,154.7 269,153.9 264,155.8 261.7,151.3 257.9,149.4 257.5,155.1 255.2,158.5 252.2,158.5 248.7,155.4 245.3,156.6 240.7,163 233.8,166.8 232.3,176.7 224.3,178.6 218.6,173.7 214.4,176.7 205.2,178.6 207.5,184.3 206.3,186.6 198.7,185.8 193.7,188.1 191.8,193.1 188,194.2 195.3,200.7 193.3,216.6 191,221.2 195.6,220.4 198.7,223.5 202.9,222.7 206.3,228 205.6,230.3 201.7,231.1 198.7,242.8 193.7,245.9 195.3,252 193,255.4 195.3,257.3 199.1,256.5 202.5,260.7 209,259.9 214.7,268.7 215.5,275.9 226.6,277.4 225.8,273.2 229.3,271 228.1,264.9 233.1,261.1 228.1,258.8 228.9,253.5 233.1,251.2 236.9,253.9 238.8,248.5 247.2,244.7 252.6,247 256.8,252.7 252.6,269.1 247.2,272.9 242.2,270.2 240.3,271.7 239.2,275.9 243.8,281.6 250.7,281.2 255.6,283.1 265.2,277 273.6,278.2 276.6,277 277.4,272.5 281.6,269.8 290.4,270.6 293.4,275.5 304.9,274.4 312.9,242.1 306.4,248.2 303.8,248.2 299.2,244 302.2,239 298.8,228.8 299.2,217 303.8,206.4 301.5,193.1 305.7,185.8 306.1,180.9 302.2,171 301.9,154.7" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="260" y="206.2" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">경북</text>
+										</a>
+										<a href="#dealer-info" data-region="chungbuk" role="button" aria-label="충북 대리점 선택" aria-pressed="false">
+											<polygon points="246.1,153.9 241.9,153.5 236.9,150.1 231.2,150.9 228.1,147.8 222.4,148.6 220.1,147.1 222,142.5 219.3,142.9 215.5,140.2 205.6,144.8 199.8,139.1 195.6,147.1 184.9,149 181.9,145.6 179.6,148.6 176.1,148.2 173.9,153.9 168.1,157.3 164.3,157.3 161.6,161.1 157.8,161.9 156.7,165.7 151.7,167.6 150.9,169.9 159,177.1 160.1,182.4 159,183.9 154.7,182.8 150.5,191.9 152.5,197.2 156.7,198.8 158.2,205.6 162,205.6 164.7,210.2 166.2,207.5 168.9,208.6 169.3,212.8 165.8,222.3 173.1,228.4 173.1,235.2 176.1,241.3 178.8,240.9 185.3,244.7 187.6,243.2 191.4,244.4 196.8,240.9 199.5,229.2 203.3,228.4 201.7,225 198.3,226.1 194.5,222.7 191,224.2 188.8,222.3 192.6,201 185.7,196.1 185.7,192.7 190.3,190.8 191.4,186.6 195.6,185.5 197.5,182.4 203.3,182.8 202.9,177.5 205.6,175.2 212.8,174.4 218.9,171 222.4,171.8 225.1,176 230.4,174.8 231.2,166.1 238.8,161.1 242.2,155.1" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="177.5" y="173.6" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">충북</text>
+										</a>
+										<a href="#dealer-info" data-region="sejong" role="button" aria-label="세종 대리점 선택" aria-pressed="false">
+											<polygon points="155.9,207.1 154.4,210.5 150.2,212.1 148.6,220 152.8,228.4 153.2,223.8 155.5,221.2 160.1,228.4 163.5,224.2 163.9,217.8 167,210.9 163.9,212.8 160.5,207.9" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="158.1" y="215.6" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="8">세종</text>
+										</a>
+										<a href="#dealer-info" data-region="daejun" role="button" aria-label="대전 대리점 선택" aria-pressed="false">
+											<polygon points="141.8,184.7 141.4,203.7 144.8,207.9 146.7,217 147.9,210.9 153.2,207.9 154,200.3 150.2,198.8 148.3,193.1 149,188.1" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="148.4" y="203.7" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="8">대전</text>
+										</a>
+										<a href="#dealer-info" data-region="chungnam" role="button" aria-label="충남 대리점 선택" aria-pressed="false">
+											<polygon points="72.2,170.3 73,176.7 68.8,176.3 66.5,180.5 71.1,180.9 73,183.9 77.2,183.9 76.8,187.4 79.5,189.3 78.7,194.2 81.4,196.9 82.5,207.5 85.2,210.5 87.1,210.2 87.1,207.1 79.9,185.8 82.5,184.3 84.4,191.2 86.7,192.3 88.3,186.6 91.7,187.7 93.6,213.2 97.4,215.9 94.4,218.9 97.4,223.1 95.9,226.5 97.1,230.3 94.8,233.3 101.6,236 105.5,244.7 115,242.5 123.4,232.2 134.5,232.6 137.9,236.8 141.8,237.9 152.5,234.9 154,239.4 162,246.3 167.7,246.3 174.2,243.2 170.8,236.4 171.2,230.3 166.6,225.4 159.3,231.4 155.9,224.6 155.1,230.7 152.8,231.8 143.3,217 142.9,210.2 138.7,204.1 139.8,192.7 138.3,185.1 139.8,182.8 143.3,182.4 150.2,185.8 153.6,180.5 157.8,180.9 145.6,167.6 139.8,164.2 120.4,170.6 119.2,174.8 116.9,175.6 114.6,165.7 112,162.7 106.6,160.8 102.4,161.5 93.6,155.4 92.1,157 94.4,161.5 93.2,163.8 87.1,159.6 82.2,160.4 85.2,164.6 89,166.1 89.4,168.4 85.2,170.6 80.6,176.7 77.2,174.8 78.3,166.1 76.4,172.5 73,172.2" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="116" y="198.9" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">충남</text>
+										</a>
+										<a href="#dealer-info" data-region="kangwon" role="button" aria-label="강원 대리점 선택" aria-pressed="false">
+											<polygon points="132.6,50.5 133.7,55.1 139.8,60.8 140.2,55.9 142.9,54.7 145.2,57.8 150.9,55.5 150.5,60.4 153.2,62.3 155.5,60 161.6,61.2 163.2,69.5 168.9,70.3 170,74.5 174.2,76.8 174.2,82.5 168.1,86.6 169.3,91.2 167,95.4 170.4,96.9 168.5,103.4 174.6,102.2 180,106.8 187.2,107.5 190.3,110.2 189.9,113.2 186.1,115.1 188.4,122.7 184.9,128.5 185.7,134.9 183,139.5 185.3,146.3 193.7,145.2 198.7,136.8 201.7,137.2 205.9,142.1 209.8,138.7 217,138 219.7,140.2 225.1,139.9 222.8,145.9 229.6,145.6 232.3,148.6 236.9,147.5 243,151.3 249.1,152.4 253.7,156.2 255.2,148.6 257.9,146.7 262.1,147.8 264.8,153.2 268.6,151.3 276.6,152 283.1,150.1 288.5,154.7 296.5,145.9 296.5,138.7 291.5,132.3 290.4,127.3 281.6,117 280.5,110.6 275.5,104.9 275.9,101.1 261,84.4 260.2,80.9 244.5,60.4 243.4,54 226.2,17.9 222,34.2 207.1,44.8 187.2,45.6 184.9,44.1 168.9,43.7 163.5,45.6 158.6,43.3 147.5,43.7 143.7,46 139.1,45.6" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="227.1" y="101.4" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">강원</text>
+										</a>
+										<a href="#dealer-info" data-region="incheon" role="button" aria-label="인천 대리점 선택" aria-pressed="false">
+											<polygon points="110,108.3 106.2,108.3 100.5,112.5 100.9,119.7 103.5,122 102.8,125.8 108.9,124.6 112,120.5" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="106" y="116.8" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="8">인천</text>
+										</a>
+										<a href="#dealer-info" data-region="kyungki" role="button" aria-label="경기 대리점 선택" aria-pressed="false">
+											<polygon points="130.3,52.4 127.6,55.1 127.6,59.7 121.5,64.6 118.8,71.4 113.5,75.6 107.8,76.8 107.4,83.2 109.3,86.3 107.4,87.8 107,98 112.3,105.3 110,105.6 104.3,101.5 103.2,93.9 97.1,94.6 97.1,102.6 100.1,109.4 106.6,105.6 111.2,106 113.1,108.3 114.6,120.5 107,130 112.3,131.9 113.5,134.5 112,136.1 105.1,135.7 103.9,140.2 105.5,144.8 108.1,145.6 107,148.6 110.8,143.7 115.8,145.2 112,156.2 115.8,156.6 118.4,162.3 123.4,165.7 126.9,161.1 128.8,164.9 141,161.9 149,167.2 154.7,163.8 155.5,160.4 159.7,159.2 162.4,155.4 167,155.1 168.9,152.4 172.7,151.6 174.6,144.4 179.2,145.6 180.3,138.3 183,135.3 182.6,126.9 185.7,123.1 183.8,114 188,111.3 179.2,109.4 173.1,104.5 168.9,106 166.2,104.9 167.7,98 164.7,97.3 166.6,91.2 165.4,86.3 172.7,79.4 167.7,76 167.4,72.6 162.8,72.6 160.5,70.3 160.5,63.8 156.7,64.6 155.9,63.1 152.8,65 147.9,61.6 148.3,58.9 146.7,60.4 142.9,58.9 142.9,61.6 138.7,63.1 131.4,56.2" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="145.1" y="128.9" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="10">경기</text>
+										</a>
+										<a href="#dealer-info" data-region="seoul" role="button" aria-label="서울 대리점 선택" aria-pressed="false">
+											<polygon points="133.7,99.6 130.7,99.9 125.3,106.4 115.8,108.7 121.1,118.2 125.7,119.7 128,117 134.9,119.3 140.2,115.5 140.2,112.5 134.9,109.1" fill="#eaf2f7" stroke="#58788c" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"></polygon>
+											<text x="129.3" y="111.1" text-anchor="middle" dominant-baseline="middle" fill="#40596b" font-size="8">서울</text>
+										</a>
+									</svg>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-6" id="dealer-info">
+							<div class="card border-color-grey-500 border-radius-2 h-100">
+								<div class="card-body p-4">
+									<div class="d-flex align-items-center justify-content-between flex-wrap mb-3">
+										<div>
+											<p class="text-color-primary text-2 font-weight-semibold mb-1">DEALER INFORMATION</p>
+											<h3 id="selected-region" class="text-color-secondary font-weight-bold text-6 mb-0">지역을 선택해 주세요</h3>
+										</div>
+										<span id="dealer-count" class="badge bg-color-primary text-color-light mt-2 mt-sm-0" aria-live="polite">지역별 안내</span>
+									</div>
+									<p id="dealer-message" class="mb-3">지도 또는 아래 지역 버튼을 선택하면 대리점 정보를 확인할 수 있습니다.</p>
+									<div id="dealer-results" class="mb-4" aria-live="polite"></div>
+									<label class="font-weight-semibold mb-2" for="dealer-region-select">지역 선택</label>
+									<select id="dealer-region-select" class="form-control">
+										<option value="" disabled selected>지역을 선택해 주세요</option>
+									</select>
+									<div class="border-top pt-3 mt-4">
+										<p class="mb-1 font-weight-semibold">대리점 안내가 필요하신가요?</p>
+										<a href="tel:1588-2094" class="text-color-primary font-weight-bold text-5 text-decoration-none">1588-2094</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<div data-footer></div>
+		</div>
+
+		<script src="vendor/plugins/js/plugins.min.js"></script>
+		<script src="js/theme.js"></script>
+		<script src="js/phx.js"></script>
+		<script src="js/custom.js"></script>
+		<script src="js/theme.init.js"></script>
+		<script src="js/load-gnb.js"></script>
+		<script>
+			const dealerRegions = {
+				seoul: { name: '서울', dealers: [{ name: '서울강남점', phone: '031-761-6869' }, { name: '서울서부점', phone: '010-7372-6884' }, { name: '서울남부점', phone: '010-8711-8578' }, { name: '서울강서점', phone: '02-2671-3652' }, { name: '서울북부점', phone: '02-973-8004' }] },
+				kyungki: { name: '경기', dealers: [{ name: '성남과천', phone: '031-761-6869' }, { name: '화성오산점', phone: '010-2210-8980' }, { name: '경기북부점', phone: '010-9197-9668' }, { name: '경기동부점', phone: '031-555-4443' }, { name: '경기서부', phone: '031-905-4558' }, { name: '평택점', phone: '031-691-0134' }, { name: '수원점', phone: '031-233-2565' }, { name: '시흥점', phone: '031-411-0870' }] },
+				incheon: { name: '인천', dealers: [{ name: '인천남부', phone: '032-261-7734' }, { name: '인천점', phone: '032-433-3117' }] },
+				kangwon: { name: '강원', dealers: [{ name: '춘천점', phone: '010-6603-2228' }, { name: '원주남부', phone: '033-766-5815' }, { name: '원주점', phone: '080-743-7237' }, { name: '강릉점', phone: '033-653-7354' }] },
+				chungnam: { name: '충남', dealers: [{ name: '홍성점', phone: '041-633-9252' }, { name: '천안점', phone: '041-585-8111' }] },
+				daejun: { name: '대전', dealers: [{ name: '대전점', phone: '042-934-5589' }] },
+				sejong: { name: '세종', dealers: [] },
+				chungbuk: { name: '충북', dealers: [{ name: '청주점', phone: '043-262-7666' }, { name: '충주점', phone: '043-855-3782' }, { name: '제천점', phone: '043-645-7237' }] },
+				kyungbuk: { name: '경북', dealers: [{ name: '안동점', phone: '054-843-0204' }, { name: '상주점', phone: '010-2480-3937' }, { name: '포항남부', phone: '054-285-2223' }, { name: '포항점', phone: '054-281-8113' }, { name: '영주점', phone: '054-633-7557' }, { name: '구미점', phone: '054-972-3352' }, { name: '경주점', phone: '080-776-0336' }] },
+				taekoo: { name: '대구', dealers: [{ name: '서대구점', phone: '053-945-1018' }, { name: '북대구점', phone: '053-326-5542' }, { name: '남대구점', phone: '053-593-1135' }] },
+				junbook: { name: '전북', dealers: [{ name: '전주점', phone: '063-211-3737' }, { name: '전북남부', phone: '063-237-3233' }, { name: '전북서부', phone: '063-212-8002' }] },
+				ulsan: { name: '울산', dealers: [{ name: '울산점', phone: '052-249-6816' }] },
+				kyungnam: { name: '경남', dealers: [{ name: '고성점', phone: '055-674-1214' }, { name: '마산점', phone: '055-277-4788' }, { name: '김해점', phone: '055-333-9588' }] },
+				busan: { name: '부산', dealers: [{ name: '부산남부점', phone: '080-705-0608' }, { name: '부산북부점', phone: '055-383-2426' }, { name: '부산동부점', phone: '051-747-0608' }] },
+				kwangjoo: { name: '광주', dealers: [{ name: '광주점', phone: '062-956-0444' }] },
+				junnam: { name: '전남', dealers: [{ name: '목포남부점', phone: '061-284-4245' }, { name: '순천점', phone: '061-745-0122' }] },
+				jeju: { name: '제주', dealers: [{ name: '제주점', phone: '080-758-2238' }] }
+			};
+
+			const regionSelect = document.getElementById('dealer-region-select');
+			const selectedRegion = document.getElementById('selected-region');
+			const dealerCount = document.getElementById('dealer-count');
+			const dealerMessage = document.getElementById('dealer-message');
+			const dealerResults = document.getElementById('dealer-results');
+			const dealerMap = document.getElementById('dealer-map');
+			const mapCenter = { x: 175, y: 255 };
+			const revealStep = 100;
+			const mapRegionsClockwise = [...dealerMap.querySelectorAll('[data-region]')]
+				.map((area) => {
+					const label = area.querySelector('text');
+					const x = Number(label.getAttribute('x'));
+					const y = Number(label.getAttribute('y'));
+					const angle = (Math.atan2(y - mapCenter.y, x - mapCenter.x) + Math.PI / 2 + Math.PI * 2) % (Math.PI * 2);
+					return { area, angle };
+				})
+				.sort((first, second) => first.angle - second.angle);
+
+			dealerMap.style.setProperty('--region-reveal-duration', `${mapRegionsClockwise.length * revealStep}ms`);
+			mapRegionsClockwise.forEach(({ area }, index) => {
+				area.style.setProperty('--region-reveal-delay', `${index * revealStep}ms`);
+			});
+			if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+				dealerMap.classList.add('is-revealing');
+			}
+
+			Object.entries(dealerRegions).forEach(([key, region]) => {
+				const option = document.createElement('option');
+				option.value = key;
+				option.textContent = region.name;
+				regionSelect.append(option);
+			});
+
+			function selectDealerRegion(regionKey) {
+				const region = dealerRegions[regionKey];
+				if (!region) return;
+
+				regionSelect.value = regionKey;
+				selectedRegion.textContent = `${region.name} 지역 대리점`;
+				dealerCount.textContent = region.dealers.length ? `대리점 ${region.dealers.length}곳` : '대리점 없음';
+				dealerMessage.textContent = region.dealers.length
+					? `${region.name} 지역 대리점의 대표 전화번호입니다.`
+					: `${region.name} 지역에 등록된 대리점이 없습니다.`;
+				dealerResults.replaceChildren();
+
+				region.dealers.forEach((dealer) => {
+					const item = document.createElement('div');
+					item.className = 'd-flex justify-content-between align-items-center flex-wrap border-bottom py-3';
+
+					const name = document.createElement('span');
+					name.className = 'font-weight-semibold text-4';
+					name.textContent = dealer.name;
+
+					const phone = document.createElement('a');
+					phone.className = 'text-color-primary font-weight-semibold text-decoration-none mt-2 mt-sm-0';
+					phone.href = `tel:${dealer.phone.replace(/[^0-9+]/g, '')}`;
+					phone.textContent = dealer.phone;
+
+					item.append(name, phone);
+					dealerResults.append(item);
+				});
+
+				dealerMap.querySelectorAll('[data-region]').forEach((area) => {
+					const isSelected = area.dataset.region === regionKey;
+					area.setAttribute('aria-pressed', String(isSelected));
+					area.querySelectorAll('polygon').forEach((polygon) => {
+						polygon.setAttribute('fill', isSelected ? '#0088cc' : '#eaf2f7');
+					});
+					area.querySelectorAll('text').forEach((label) => {
+						label.setAttribute('fill', isSelected ? '#ffffff' : '#40596b');
+					});
+				});
+			}
+
+			dealerMap.addEventListener('click', (event) => {
+				const area = event.target.closest('[data-region]');
+				if (!area) return;
+				event.preventDefault();
+				dealerMap.classList.remove('is-revealing');
+				selectDealerRegion(area.dataset.region);
+			});
+
+			dealerMap.addEventListener('pointerenter', () => {
+				dealerMap.classList.remove('is-revealing');
+			}, { once: true });
+
+			dealerMap.querySelectorAll('[data-region]').forEach((area) => {
+				area.addEventListener('pointerenter', () => {
+					if (area.getAttribute('aria-pressed') === 'true') return;
+					area.querySelectorAll('polygon').forEach((polygon) => polygon.setAttribute('fill', '#d4e7f2'));
+				});
+				area.addEventListener('pointerleave', () => {
+					if (area.getAttribute('aria-pressed') === 'true') return;
+					area.querySelectorAll('polygon').forEach((polygon) => polygon.setAttribute('fill', '#eaf2f7'));
+				});
+			});
+
+			regionSelect.addEventListener('change', () => selectDealerRegion(regionSelect.value));
+		</script>
+	</body>
+</html>
