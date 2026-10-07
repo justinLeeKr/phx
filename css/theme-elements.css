@@ -1135,7 +1135,7 @@ Theme Version:	13.1.0
 
 	to {
 		opacity: 1;
-		filter: blur(0.1px);
+		filter: blur(0);
 		transform: none;
 	}
 }

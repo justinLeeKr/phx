@@ -9,7 +9,7 @@
 		:root {
 			--navy: #101d36;
 			--navy-2: #182c4d;
-			--blue: #315ce8;
+			--blue: #0931b6;
 			--cyan: #a9dded;
 			--ink: #172338;
 			--muted: #697587;
@@ -139,7 +139,7 @@
 		}
 		.cover .sheet-inner { z-index: 1; justify-content: space-between; padding-top: 5.4%; padding-bottom: 5%; }
 		.brand { display: flex; align-items: center; gap: 13px; color: white; font-size: 19px; font-weight: 900; letter-spacing: .14em; }
-		.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; color: var(--cyan); font-size: 14px; }
+		.brand-mark-image { display: block; flex: 0 0 34px; width: 34px; height: 34px; object-fit: contain; }
 		.cover-copy { width: 57%; margin-top: auto; margin-bottom: auto; padding: 26px 0 20px; }
 		.cover .eyebrow { margin-bottom: 17px; color: var(--cyan); font-size: 11px; font-weight: 800; letter-spacing: .2em; }
 		.cover h1 { max-width: 620px; margin: 0 0 16px; color: white; font-size: clamp(36px, 5vw, 66px); font-weight: 800; letter-spacing: -.055em; line-height: 1.04; }
@@ -155,7 +155,7 @@
 		.stat { padding: 15px 16px 13px; border-top: 2px solid var(--blue); background: var(--soft); }
 		.stat strong { display: block; margin-bottom: 5px; color: var(--navy); font-size: 25px; font-weight: 900; letter-spacing: -.04em; }
 		.stat span { display: block; color: var(--muted); font-size: 10px; line-height: 1.45; }
-		.photo-strip { display: grid; flex: 1; min-height: 105px; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px; }
+		.photo-strip { display: grid; flex: 1; min-height: 105px; grid-template-columns: repeat(3, 1fr); gap: 10px; }
 		.photo-card { position: relative; overflow: hidden; background: #dce4ed; }
 		.photo-card img { width: 100%; height: 100%; object-fit: cover; }
 		.photo-card::after { position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(11,25,47,.77)); content: ""; }
@@ -193,6 +193,7 @@
 		.value-card .num { margin-bottom: 11px; color: #a6b1c0; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
 		.value-card h3 { margin-bottom: 10px; color: var(--navy); font-size: 19px; letter-spacing: -.03em; }
 		.value-card p { margin-bottom: 15px; color: var(--muted); font-size: 12px; line-height: 1.75; }
+		.value-card-image { display: block; width: 100%; max-height: 110px; margin: auto 0; object-fit: contain; }
 		.value-card .card-foot { margin-top: auto; padding-top: 13px; border-top: 1px solid var(--line); color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .08em; }
 		.value-note { margin: 15px 0 0; padding: 11px 14px; border-left: 3px solid var(--orange); background: #fbf7f2; color: #657182; font-size: 10px; line-height: 1.6; }
 
@@ -353,11 +354,14 @@
 	<main class="deck">
 		<section class="sheet cover" id="page-1" aria-label="1페이지 표지">
 			<div class="sheet-inner">
-				<div class="brand"><span class="brand-mark">P</span> PHOENIX</div>
+				<div class="brand">
+					<img class="brand-mark-image" src="img/phx/logo-phoenix.png" alt="PHOENIX 로고">
+					<span>PHOENIX</span>
+				</div>
 				<div class="cover-copy">
 					<p class="eyebrow">KOREAN OEM PARTNER FOR JAPAN</p>
 					<h1>Korean OEM Partner<span>for Japanese Commercial Kitchens</span></h1>
-					<p class="cover-sub">27년간 업소용 식기세척기를 만들어 온 전문 제조기업.<br>10년간 일본 시장에 제품을 공급하며 쌓은 경험으로<br>귀사의 브랜드에 맞는 OEM·ODM을 제안합니다.</p>
+					<p class="cover-sub">27년간 업소용 식기세척기를 만들어 온 전문 제조기업.<br>10년간 일본 시장에 제품을 공급하며 일본 음식점에 최적화된 제품과 품질로<br>귀사에 OEM·ODM을 제안합니다.</p>
 				</div>
 				<div class="cover-bottom">
 					<div class="cover-tags"><span>PHOENIX</span><span>MADE IN KOREA</span><span>OEM / ODM</span></div>
@@ -416,7 +420,7 @@
 					<div class="stat"><strong>27 YEARS</strong><span>1999년부터 이어온<br>식기세척기 제조 경험</span></div>
 					<div class="stat"><strong>10 YEARS</strong><span>일본 시장 수출 및<br>현장 경험</span></div>
 					<div class="stat"><strong>10+ COUNTRIES</strong><span>일본·대만 등<br>해외 수출 시장</span></div>
-					<div class="stat"><strong>OEM / ODM</strong><span>바이어 요구에 맞춘<br>제조 협력</span></div>
+					<div class="stat"><strong>OEM / ODM</strong><span>바이어 요구에 맞춘<br>제조 방식 협력</span></div>
 				</div>
 				<div class="photo-strip" aria-label="피닉스 제조 설비 이미지">
 					<div class="photo-card"><img src="img/phx/portfolio/equipment_1.jpg" alt="피닉스 제조 설비"><span>MANUFACTURING</span></div>
@@ -436,19 +440,22 @@
 					<article class="value-card">
 						<span class="num">01 / QUALITY</span>
 						<h3>Made in Korea</h3>
-						<p>주요 부품을 한국산으로 구성하고, 품질과 내구성을 고려해 제조 공정을 관리합니다. 국내 생산 기반으로 제품 품질을 지속적으로 점검합니다.</p>
+						 <p>부품 하나까지 품질과 내구성을 고려하여 검증된 한국산 부품을 사용하며, 모든 제품은 국내 제조공장에서 직접 생산합니다.</p>
+						<img class="value-card-image" src="img/phx/product/allproduct_2.jpg" alt="피닉스 제품 이미지">
 						<span class="card-foot">QUALITY-FOCUSED COMPONENTS</span>
 					</article>
 					<article class="value-card">
 						<span class="num">02 / VALUE</span>
 						<h3>Competitive OEM Pricing</h3>
-						<p>한국에서 직접 설계·생산하는 제조 파트너로서 제품 구성과 발주 조건에 맞춘 공급안을 제안합니다.</p>
-						<span class="card-foot">DIRECT MANUFACTURING</span>
+						<p>저희는 품질을 유지하면서도 가장 경쟁력 있는 OEM 가격을 귀사에 제안드리겠습니다.</p>
+						<img class="value-card-image" src="img/phx/product/empo.jpg" alt="피닉스 OEM 가격 이미지">
+						<span class="card-foot">BEST PRICE GUARANTEED</span>
 					</article>
 					<article class="value-card">
 						<span class="num">03 / EXPERIENCE</span>
 						<h3>Proven in Japan</h3>
-						<p>일본 시장에 제품을 공급해 온 경험을 바탕으로 협소한 주방 공간과 실제 사용 환경을 고려해 사양을 협의합니다.</p>
+						<p>10년간 일본 시장에 제품을 공급해 온 경험을 바탕으로 제품의 생산, 수출 납품, A/S 등 신뢰 받는 서비스를 제공합니다.</p>
+						<img class="value-card-image" src="img/phx/product/box.jpg" alt="피닉스 일본 수출 경험 이미지">
 						<span class="card-foot">10 YEARS OF JAPAN EXPERIENCE</span>
 					</article>
 				</div>
@@ -461,7 +468,7 @@
 			<div class="sheet-inner">
 				<p class="kicker">Under counter dishwasher · PDW400</p>
 				<h2>Compact Design. Powerful Cleaning.</h2>
-				<p class="lead">작은 주방에서도 효율적으로 사용할 수 있도록 설계한 언더카운터 모델. 제품 사양을 바탕으로 일본 OEM 적용 조건을 구체적으로 협의합니다.</p>
+				<p class="lead">작은 주방에서도 효율적으로 사용할 수 있도록 설계한 언더카운터 모델. 10년간 제조 노하우를 바탕으로 귀사에 최적화된 제품을 제공합니다.</p>
 				<div class="product-layout">
 					<div class="product-visual">
 						<span class="visual-label">PDW400 · UNDER COUNTER</span>
@@ -499,7 +506,7 @@
 			<div class="sheet-inner">
 				<p class="kicker">OEM customization &amp; support</p>
 				<h2>Your Brand. Our Manufacturing.</h2>
-				<p class="lead">브랜드 적용부터 일본어 자료까지, 귀사의 판매 방식과 시장 요구에 맞춘 OEM·ODM 협력 범위를 함께 설계합니다.</p>
+				<p class="lead">브랜드 적용부터 일본어 UI까지, 귀사의 판매 방식과 시장 요구에 맞춘 OEM·ODM 협력 범위를 함께 설계합니다.</p>
 				<div class="oem-layout">
 					<div class="oem-left">
 						<h3>OEM Customization</h3>
@@ -530,7 +537,7 @@
 				<p class="lead">제품 공급을 넘어, 일본 시장에서 귀사의 브랜드가 성장할 수 있도록 함께 만드는 한국 OEM 제조 파트너가 되겠습니다.</p>
 				<div class="partner-banner">
 					<span>YOUR BRAND · OUR MANUFACTURING</span>
-					<strong>귀사의 브랜드를 위한<br>OEM/ODM 제조 파트너가 되겠습니다.</strong>
+					<strong>확실한 A/S, 납기 준수, 경쟁력 있는 가격의<br>OEM/ODM 제조 파트너가 되겠습니다.</strong>
 				</div>
 				<div class="contact-bottom">
 					<div class="partner-points">
@@ -542,7 +549,7 @@
 						<div>
 							<div class="contact-label">OEM / ODM INQUIRY</div>
 							<strong>PHOENIX Co., Ltd.</strong>
-							<p>전화 <a href="tel:15882094">1588-2094</a><br>경기 이천시 모가면 진상미로 1073-17<br><a href="http://www.phx.co.kr" target="_blank">www.phx.co.kr →</a></p>
+							<p>일본어 전용 전화<a href="tel:821071102295">+82+10-7110-2295</a><br>공장 및 본사: 경기 이천시 모가면 진상미로 1073-17<br><a href="http://www.phx.co.kr" target="_blank">www.phx.co.kr →</a></p>
 						</div>
 						<a class="web-link" href="http://www.phx.co.kr" aria-label="홈페이지 www.phx.co.kr"><span>WEB<br>INQUIRY<br>↗</span></a>
 					</div>
