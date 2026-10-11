@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="PHOENIX｜日本の業務用厨房に向けた業務用食器洗浄機 OEM・ODMのご提案">
+	<title>PHOENIX | 日本向け OEM・ODMのご提案</title>
+	<style>
+		:root {
+			--navy: #101d36;
+			--navy-2: #182c4d;
+			--blue: #0931b6;
+			--cyan: #a9dded;
+			--ink: #172338;
+			--muted: #697587;
+			--line: #dce3eb;
+			--paper: #fff;
+			--soft: #f3f6fa;
+			--orange: #e89a51;
+			--font: "Noto Sans JP", "Yu Gothic", "Hiragino Kaku Gothic ProN", sans-serif;
+		}
+
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body {
+			margin: 0;
+			background: #e9edf2;
+			color: var(--ink);
+			font-family: var(--font);
+			-webkit-font-smoothing: antialiased;
+		}
+		button, a { font: inherit; }
+		.toolbar {
+			position: sticky;
+			z-index: 10;
+			top: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 10px;
+			padding: 12px;
+			background: rgba(16, 29, 54, .96);
+			color: white;
+			backdrop-filter: blur(12px);
+		}
+		.toolbar button, .toolbar a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 38px;
+			padding: 0 15px;
+			border: 1px solid rgba(255,255,255,.28);
+			border-radius: 4px;
+			background: transparent;
+			color: white;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		.toolbar button:hover, .toolbar a:hover { background: rgba(255,255,255,.12); }
+		.toolbar .print { border-color: var(--blue); background: var(--blue); }
+		.toolbar-count { min-width: 56px; text-align: center; font-size: 13px; }
+		.deck { padding: 30px 20px 50px; }
+		.sheet {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			width: min(100%, 1180px);
+			aspect-ratio: 297 / 210;
+			min-height: 620px;
+			margin: 0 auto 26px;
+			overflow: hidden;
+			background: var(--paper);
+			box-shadow: 0 16px 42px rgba(24, 38, 61, .14);
+		}
+		.sheet-inner {
+			position: relative;
+			display: flex;
+			flex: 1;
+			flex-direction: column;
+			min-height: 0;
+			padding: 5.5% 6.3% 4.8%;
+		}
+		.kicker {
+			display: inline-flex;
+			align-items: center;
+			gap: 9px;
+			margin: 0 0 12px;
+			color: var(--blue);
+			font-size: 11px;
+			font-weight: 800;
+			letter-spacing: .17em;
+			text-transform: uppercase;
+		}
+		.kicker::before { width: 24px; height: 2px; background: currentColor; content: ""; }
+		h1, h2, h3, p { margin-top: 0; }
+		h2 {
+			margin-bottom: 10px;
+			color: var(--navy);
+			font-size: clamp(25px, 3vw, 39px);
+			letter-spacing: -.045em;
+			line-height: 1.12;
+		}
+		.lead { max-width: 680px; margin-bottom: 22px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+		.en-title { display: block; margin-bottom: 7px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+		.footer {
+			position: absolute;
+			right: 6.3%;
+			bottom: 2.8%;
+			left: 6.3%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			color: #8190a2;
+			font-size: 9px;
+			letter-spacing: .12em;
+			text-transform: uppercase;
+		}
+		.footer .page-no { color: var(--navy); font-weight: 800; }
+
+		/* Cover */
+		.cover { background: var(--navy); color: white; }
+		.cover::before {
+			position: absolute;
+			inset: 0 0 0 43%;
+			background: linear-gradient(90deg, var(--navy) 0%, rgba(16,29,54,.16) 34%, rgba(16,29,54,0) 65%), url("img/phx/backgrounds/sub_undercounter.jpg") center / cover;
+			content: "";
+			opacity: .9;
+		}
+		.cover::after {
+			position: absolute;
+			right: -14%;
+			bottom: 0;
+			width: 56%;
+			aspect-ratio: 1;
+			border: 1px solid rgba(166, 214, 234, .26);
+			border-radius: 50%;
+			box-shadow: 0 0 0 42px rgba(166,214,234,.035), 0 0 0 84px rgba(166,214,234,.025);
+			content: "";
+		}
+		.cover .sheet-inner { z-index: 1; justify-content: space-between; padding-top: 5.4%; padding-bottom: 5%; }
+		.brand { display: flex; align-items: center; gap: 13px; color: white; font-size: 19px; font-weight: 900; letter-spacing: .14em; }
+		.brand-mark-image { display: block; flex: 0 0 34px; width: 34px; height: 34px; object-fit: contain; }
+		.brand-mark-end { display: block; flex: 0 0 70px; width: 150px; object-fit: contain; }
+		.cover-copy { width: 57%; margin-top: auto; margin-bottom: auto; padding: 26px 0 20px; }
+		.cover .eyebrow { margin-bottom: 17px; color: var(--cyan); font-size: 11px; font-weight: 800; letter-spacing: .2em; }
+		.cover h1 { max-width: 620px; margin: 0 0 16px; color: white; font-size: clamp(36px, 5vw, 66px); font-weight: 800; letter-spacing: -.055em; line-height: 1.04; }
+		.cover h1 span { display: block; margin-top: 10px; color: var(--cyan); font-size: .57em; letter-spacing: -.025em; line-height: 1.28; }
+		.cover-sub { max-width: 450px; margin: 0; color: rgba(255,255,255,.78); font-size: 15px; line-height: 1.8; }
+		.cover-bottom { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+		.cover-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+		.cover-tags span { padding: 8px 11px; border: 1px solid rgba(255,255,255,.32); color: rgba(255,255,255,.9); font-size: 9px; font-weight: 700; letter-spacing: .12em; }
+		.cover-note { max-width: 220px; margin: 0; color: rgba(255,255,255,.64); font-size: 10px; line-height: 1.5; text-align: right; }
+
+		/* Company */
+		.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 3px 0 22px; }
+		.stat { padding: 15px 16px 13px; border-top: 2px solid var(--blue); background: var(--soft); }
+		.stat strong { display: block; margin-bottom: 5px; color: var(--navy); font-size: 25px; font-weight: 900; letter-spacing: -.04em; }
+		.stat span { display: block; color: var(--muted); font-size: 10px; line-height: 1.45; }
+		.photo-strip { display: grid; flex: 1; min-height: 105px; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+		.photo-card { position: relative; overflow: hidden; background: #dce4ed; }
+		.photo-card img { width: 100%; height: 100%; object-fit: cover; }
+		.photo-card span { position: absolute; z-index: 1; bottom: 12px; left: 13px; color: white; font-size: 11px; font-weight: 700; }
+
+		/* Company overview */
+		.company-highlights { display: grid; flex: 1; min-height: 0; grid-template-columns: .78fr 1.22fr; gap: 15px; }
+		.company-proof { display: flex; flex-direction: column; justify-content: space-between; padding: 20px; background: var(--navy); color: white; }
+		.proof-label { margin-bottom: 8px; color: var(--cyan); font-size: 9px; font-weight: 800; letter-spacing: .16em; }
+		.company-proof h3 { margin: 0 0 5px; color: white; font-size: 40px; font-weight: 900; letter-spacing: -.06em; }
+		.company-proof .proof-copy { margin: 0; color: rgba(255,255,255,.78); font-size: 13px; font-weight: 700; line-height: 1.6; }
+		.proof-stat { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 10px 0; border-top: 1px solid rgba(255,255,255,.2); }
+		.proof-stat strong { color: var(--cyan); font-size: 22px; font-weight: 900; white-space: nowrap; }
+		.proof-stat span { color: rgba(255,255,255,.75); font-size: 9px; text-align: right; }
+		.company-floor { display: grid; min-height: 0; grid-template-rows: 1fr auto; gap: 10px; }
+		.company-photo-grid { display: grid; min-height: 135px; grid-template-columns: 1.12fr .88fr; gap: 9px; }
+		.company-photo { position: relative; min-height: 0; overflow: hidden; background: #dce4ed; }
+		.company-photo img { width: 100%; height: 100%; object-fit: cover; }
+		.company-photo span { position: absolute; z-index: 1; right: 10px; bottom: 10px; left: 10px; color: white; font-size: 9px; font-weight: 750; line-height: 1.4; }
+		.company-milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+		.company-milestone { padding: 9px 10px; border-top: 2px solid var(--blue); background: var(--soft); }
+		.company-milestone b { display: block; margin-bottom: 4px; color: var(--blue); font-size: 11px; }
+		.company-milestone span { display: block; color: var(--navy); font-size: 9px; font-weight: 700; line-height: 1.45; }
+		.company-bottom { display: grid; grid-template-columns: 1fr 1.15fr; gap: 14px; align-items: center; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+		.company-quality strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 11px; }
+		.company-quality span { display: block; color: var(--muted); font-size: 9px; line-height: 1.55; }
+		.certificate-image { display: block; width: 100%; height: 43px; object-fit: contain; }
+		.company-disclaimer { margin: 8px 0 0; color: var(--muted); font-size: 8px; line-height: 1.5; }
+
+		/* Value */
+		.value-grid { display: grid; flex: 1; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 5px; }
+		.value-card { position: relative; display: flex; flex-direction: column; padding: 23px 21px; border: 1px solid var(--line); background: white; }
+		.value-card::before { width: 34px; height: 3px; margin-bottom: 25px; background: var(--blue); content: ""; }
+		.value-card .num { margin-bottom: 11px; color: #a6b1c0; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+		.value-card h3 { margin-bottom: 10px; color: var(--navy); font-size: 19px; letter-spacing: -.03em; }
+		.value-card p { margin-bottom: 15px; color: var(--muted); font-size: 12px; line-height: 1.75; }
+		.value-card-image { display: block; width: 100%; max-height: 110px; margin: auto 0; object-fit: contain; }
+		.value-card .card-foot { margin-top: auto; padding-top: 13px; border-top: 1px solid var(--line); color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .08em; }
+		.value-note { margin: 15px 0 0; padding: 11px 14px; border-left: 3px solid var(--orange); background: #fbf7f2; color: #657182; font-size: 10px; line-height: 1.6; }
+
+		/* Product */
+		.product-layout { display: grid; flex: 1; min-height: 0; grid-template-columns: 1.12fr .88fr; gap: 25px; }
+		.product-visual { position: relative; display: grid; min-height: 0; overflow: hidden; place-items: center; background: #f1f4f7; }
+		.product-visual .main-product { width: 94%; height: 91%; object-fit: contain; mix-blend-mode: multiply; }
+		.product-inset {
+			position: absolute;
+			bottom: 14px;
+			left: 14px;
+			width: 27%;
+			min-width: 96px;
+			padding: 5px;
+			background: white;
+			box-shadow: 0 5px 18px rgba(18,34,58,.14);
+		}
+		.product-inset img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+		.product-inset span { display: block; padding: 6px 2px 1px; color: var(--muted); font-size: 8px; font-weight: 800; letter-spacing: .08em; }
+		.visual-label { position: absolute; top: 15px; left: 15px; padding: 7px 9px; background: var(--navy); color: white; font-size: 9px; font-weight: 800; letter-spacing: .1em; }
+		.size-callout { position: absolute; right: 13px; bottom: 13px; padding: 10px 12px; background: white; box-shadow: 0 5px 18px rgba(18,34,58,.1); color: var(--navy); font-size: 10px; font-weight: 800; }
+		.product-copy { display: flex; flex-direction: column; min-width: 0; }
+		.product-copy h3 { margin: 0 0 9px; color: var(--navy); font-size: 22px; letter-spacing: -.04em; }
+		.product-copy .summary { margin-bottom: 15px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+		.features { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 14px; }
+		.feature { min-height: 68px; padding: 10px; background: var(--soft); }
+		.feature strong { display: block; margin-bottom: 4px; color: var(--blue); font-size: 9px; letter-spacing: .12em; }
+		.feature span { color: var(--navy); font-size: 11px; font-weight: 750; line-height: 1.4; }
+		.specs { width: 100%; border-collapse: collapse; font-size: 10px; }
+		.specs th, .specs td { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.4; }
+		.specs th { width: 34%; color: var(--muted); font-weight: 600; }
+		.specs td { color: var(--navy); font-weight: 750; }
+		.spec-note { margin: 9px 0 0; color: var(--muted); font-size: 9px; line-height: 1.55; }
+
+		/* OEM support */
+		.oem-layout { display: grid; flex: 1; min-height: 0; grid-template-columns: 1.1fr .9fr; gap: 18px; }
+		.oem-left, .support-panel { min-height: 0; padding: 20px; background: var(--soft); }
+		.oem-left h3, .support-panel h3 { margin: 0 0 14px; color: var(--navy); font-size: 15px; }
+		.custom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+		.custom-item { min-height: 97px; padding: 13px; border: 1px solid #e0e6ee; background: white; }
+		.custom-item b { display: block; margin-bottom: 7px; color: var(--blue); font-size: 9px; letter-spacing: .14em; }
+		.custom-item strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 12px; }
+		.custom-item span { color: var(--muted); font-size: 10px; line-height: 1.5; }
+		.support-panel { display: flex; flex-direction: column; background: var(--navy); color: white; }
+		.support-panel h3 { color: white; }
+		.support-item { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.16); }
+		.support-item .icon { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid rgba(169,221,237,.65); border-radius: 50%; color: var(--cyan); font-size: 10px; font-weight: 800; }
+		.support-item strong { display: block; margin: 1px 0 4px; color: white; font-size: 10px; }
+		.support-item p { margin: 0; color: rgba(255,255,255,.7); font-size: 9px; line-height: 1.45; }
+		.warranty { margin-top: auto; padding: 10px 11px; background: rgba(255,255,255,.09); color: rgba(255,255,255,.78); font-size: 9px; line-height: 1.55; }
+
+		/* Contact */
+		.partnership { background: var(--navy); color: white; }
+		.partnership .sheet-inner { padding-top: 5%; }
+		.partnership .kicker { color: var(--cyan); }
+		.partnership h2 { max-width: 760px; color: white; font-size: clamp(29px, 3.5vw, 46px); }
+		.partnership .lead { color: rgba(255,255,255,.68); }
+		.partner-banner {
+			display: flex;
+			flex: 0 0 auto;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+			aspect-ratio: 2000 / 730;
+			min-height: 300px;
+			margin: 4px 0 18px;
+			padding: 20px 25px;
+			border-left: 3px solid var(--cyan);
+			background:
+				url("img/phx/product/allproduct.png") right center / auto 42% no-repeat,
+				linear-gradient(100deg, #3038c8 0%, rgba(39,36,173,.94) 39%, rgba(29,17,120,.34) 72%, rgba(29,17,120,.08) 100%),
+				linear-gradient(112deg, #3038c8 0%, #2724ad 48%, #1d1178 100%);
+		}
+		.partner-banner span { margin-bottom: 8px; color: var(--cyan); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+		.partner-banner strong { max-width: 700px; color: white; font-size: clamp(20px, 2.5vw, 31px); letter-spacing: -.045em; line-height: 1.35; }
+		.contact-bottom { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; align-items: end; }
+		.partner-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+		.partner-point { padding: 11px 12px; border: 1px solid rgba(255,255,255,.18); }
+		.partner-point b { display: block; margin-bottom: 5px; color: var(--cyan); font-size: 13px; }
+		.partner-point span { color: rgba(255,255,255,.65); font-size: 9px; line-height: 1.4; }
+		.contact-card { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 15px 16px; background: white; color: var(--navy); }
+		.contact-card .contact-label { margin-bottom: 5px; color: var(--blue); font-size: 9px; font-weight: 800; letter-spacing: .13em; }
+		.contact-card strong { display: block; margin-bottom: 5px; font-size: 14px; }
+		.contact-card p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+		.contact-card a { color: var(--blue); font-weight: 800; text-decoration: none; }
+		.web-link { display: grid; width: 66px; height: 66px; place-items: center; border: 1px solid var(--line); color: var(--blue); text-align: center; text-decoration: none; }
+		.web-link span { font-size: 8px; font-weight: 800; letter-spacing: .08em; line-height: 1.5; }
+		.partnership .footer { color: rgba(255,255,255,.48); }
+		.partnership .footer .page-no { color: white; }
+
+		@media (max-width: 760px) {
+			.toolbar { flex-wrap: wrap; }
+			.deck { padding: 14px 10px 25px; }
+			.sheet { min-height: 0; aspect-ratio: auto; min-height: 690px; margin-bottom: 14px; }
+			.sheet-inner { min-height: 690px; padding: 28px 24px 55px; }
+			.cover .sheet-inner { min-height: 690px; padding: 28px 24px; }
+			.cover::before { inset: 38% 0 0; background: linear-gradient(180deg, var(--navy), rgba(16,29,54,.12) 43%, rgba(16,29,54,.24)), url("img/phx/backgrounds/sub_undercounter.jpg") center / cover; }
+			.cover-copy { width: 100%; }
+			.cover h1 { font-size: 46px; }
+			.cover-bottom { align-items: start; flex-direction: column; }
+			.cover-note { text-align: left; }
+			.stats { grid-template-columns: 1fr 1fr; }
+			.photo-strip { min-height: 210px; }
+			.company-highlights { grid-template-columns: 1fr; }
+			.company-proof { gap: 15px; }
+			.company-photo-grid { min-height: 210px; }
+			.company-bottom { grid-template-columns: 1fr; }
+			.value-grid { grid-template-columns: 1fr; }
+			.value-card { min-height: 155px; }
+			.product-layout, .oem-layout, .contact-bottom { grid-template-columns: 1fr; }
+			.product-visual { min-height: 260px; }
+			.oem-left, .support-panel { padding: 16px; }
+			.custom-item { min-height: 90px; }
+			.partner-points { grid-template-columns: 1fr; }
+			.partner-banner {
+				aspect-ratio: auto;
+				justify-content: flex-start;
+				min-height: 440px;
+				padding-top: 24px;
+				background-size: 100% auto, 100% 100%, auto;
+				background-position: right bottom, center, center;
+			}
+			.footer { right: 24px; left: 24px; }
+		}
+		@media print {
+			@page { size: A4 landscape; margin: 0; }
+			html, body { width: 297mm; margin: 0; background: white; }
+			.toolbar { display: none !important; }
+			.deck { padding: 0; }
+			.sheet {
+				width: 297mm;
+				height: 210mm;
+				min-height: 0;
+				margin: 0;
+				aspect-ratio: auto;
+				box-shadow: none;
+				break-after: page;
+				page-break-after: always;
+				-webkit-print-color-adjust: exact;
+				print-color-adjust: exact;
+			}
+			.sheet:last-child { break-after: auto; page-break-after: auto; }
+			.sheet-inner { padding: 11mm 18.7mm 10mm; }
+			.footer { right: 18.7mm; bottom: 5.5mm; left: 18.7mm; }
+			.cover .sheet-inner { padding: 11mm 18.7mm 10mm; }
+			.partnership .sheet-inner { padding-top: 10mm; }
+		}
+	</style>
+</head>
+<body>
+	<nav class="toolbar" aria-label="提案書の操作">
+		<button type="button" id="previous" aria-label="前のページ">← 前へ</button>
+		<span class="toolbar-count" id="page-count" aria-live="polite">1 / 8</span>
+		<button type="button" id="next" aria-label="次のページ">次へ →</button>
+		<button type="button" class="print" id="print">PDF・印刷</button>
+	</nav>
+
+	<main class="deck">
+		<section class="sheet cover" id="page-1" aria-label="1ページ目 表紙">
+			<div class="sheet-inner">
+				<div class="brand">
+					<img class="brand-mark-image" src="img/phx/logo-phoenix.png" alt="PHOENIXロゴ">
+					<span>PHOENIX</span>
+				</div>
+				<div class="cover-copy">
+					<p class="eyebrow">日本市場向け 韓国OEMパートナー</p>
+					<h1>韓国のOEMパートナー<span>日本の業務用厨房に向けて</span></h1>
+					<p class="cover-sub">業務用食器洗浄機の製造に27年にわたり取り組んできた専門メーカーです。<br>日本市場への10年にわたる供給実績をもとに、日本の飲食店に適した製品と品質で、<br>貴社のOEM・ODMをサポートいたします。</p>
+				</div>
+				<div class="cover-bottom">
+					<div class="cover-tags"><span>PHOENIX</span><span>韓国製</span><span>OEM／ODM</span></div>
+					<p class="cover-note">限られた厨房スペースに適した<br>コンパクトなアンダーカウンター型</p>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX・日本向けOEM提案</span><span class="page-no">01 / 08</span></div>
+		</section>
+
+		<section class="sheet" id="page-2" aria-label="2ページ目 会社概要と製造力">
+			<div class="sheet-inner">
+				<p class="kicker">会社概要・韓国製</p>
+				<h2>確かな技術力を、<br>一台一台の製品に。</h2>
+				<p class="lead">PHOENIXは1999年の創業以来、食器洗浄機一筋に取り組んできました。蓄積した特許技術、新工場の最新生産設備、熟練スタッフの丁寧なものづくりを強みとする韓国のメーカーです。</p>
+				<div class="company-highlights">
+					<div class="company-proof">
+						<div>
+							<p class="proof-label">食器洗浄機専門メーカー</p>
+							<h3>1999年創業</h3>
+							<p class="proof-copy">業務用食器洗浄機分野で韓国最多の特許を保有</p>
+						</div>
+						<p class="proof-copy">PHOENIXは、食器洗浄機分野で培った知的財産と技術を、製品の改良および製造力の向上に生かしています。</p>
+						<div>
+							<div class="proof-stat"><strong>1999</strong><span>食器洗浄機の専門製造を開始</span></div>
+							<div class="proof-stat"><strong>特許18件</strong><span>特許登録件数</span></div>
+							<div class="proof-stat"><strong>韓国調達庁</strong><span>韓国調達庁への登録・MAS供給実績</span></div>
+						</div>
+					</div>
+					<div class="company-floor">
+						<div class="company-photo-grid" aria-label="生産施設・設備">
+							<div class="company-photo"><img src="img/phx/portfolio/portfolio-1.jpg" alt="PHOENIXの工場内"><span>PHOENIX工場内</span></div>
+							<div class="company-photo"><img src="img/phx/portfolio/portfolio-6.jpg" alt="PHOENIX工場入口"><span>PHOENIX工場入口</span></div>
+						</div>
+						<div class="company-milestones">
+							<div class="company-milestone"><b>2022</b><span>京畿道利川市に<br>新工場を開設</span></div>
+							<div class="company-milestone"><b>2023</b><span>自動レーザー<br>溶接ロボットを導入</span></div>
+							<div class="company-milestone"><b>2024</b><span>新型ベンダー<br>DDM 5020を導入</span></div>
+						</div>
+					</div>
+				</div>
+				<div class="company-bottom">
+					<div class="company-quality"><strong>自動化設備と熟練スタッフが支える品質</strong><span>精密加工設備と、現場スタッフによる丁寧な組立・仕上げ・検査を組み合わせ、製品の完成度を高めています。</span></div>
+					<img class="certificate-image" src="img/phx/product/cert_1.png" alt="韓国標準協会優秀商品、ISO 9001、電気用品安全認証、欧州電気安全認証、特許証">
+				</div>
+				<p class="company-disclaimer">※ 特許18件、韓国調達庁総合ショッピングモール（MAS）登録、ISO 9001・電気安全・欧州電気安全認証、優秀商品選定</p>
+			</div>
+			<div class="footer"><span>PHOENIX・会社概要</span><span class="page-no">02 / 08</span></div>
+		</section>
+
+		<section class="sheet" id="page-3" aria-label="3ページ目 会社概要と日本への輸出実績">
+			<div class="sheet-inner">
+				<p class="kicker">会社概要・確かな実績</p>
+				<h2>製造の歩み、27年。<br>日本市場での実績、10年。</h2>
+				<p class="lead">1999年の創業以来、業務用食器洗浄機の開発・製造に専念してきました。日本をはじめ海外各国へ製品を供給し、多様な厨房環境に応える経験を重ねています。</p>
+				<div class="stats">
+					<div class="stat"><strong>27年</strong><span>1999年から続く<br>食器洗浄機の製造実績</span></div>
+					<div class="stat"><strong>10年</strong><span>日本市場への輸出と<br>現地での経験</span></div>
+					<div class="stat"><strong>10か国以上</strong><span>日本・台湾など<br>海外への輸出実績</span></div>
+					<div class="stat"><strong>OEM／ODM</strong><span>お客様のご要望に応じた<br>製造方式での協業</span></div>
+				</div>
+				<div class="photo-strip" aria-label="PHOENIXの製造設備">
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_1.jpg" alt="PHOENIXの製造設備"><span>製造</span></div>
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_2.jpg" alt="PHOENIXの生産設備"><span>生産体制</span></div>
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_3.jpg" alt="PHOENIXの生産現場"><span>韓国製</span></div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX・会社案内</span><span class="page-no">03 / 08</span></div>
+		</section>
+
+		<section class="sheet" id="page-4" aria-label="4ページ目 PHOENIXが選ばれる理由">
+			<div class="sheet-inner">
+				<p class="kicker">PHOENIXが選ばれる理由</p>
+				<h2>信頼できる品質。<br>納得できるコスト。</h2>
+				<p class="lead">日本のOEMパートナー選びで重視される品質、供給力、市場への適合性を、豊富な製造経験と自社生産体制で支えます。</p>
+				<div class="value-grid">
+					<article class="value-card">
+						<span class="num">01 / 品質</span>
+						<h3>韓国製</h3>
+						 <p>部品一つひとつの品質と耐久性に配慮し、信頼性を確認した韓国製部品を採用。すべての製品を韓国国内の自社工場で製造しています。</p>
+						<img class="value-card-image" src="img/phx/product/allproduct_2.jpg" alt="PHOENIX製品">
+						<span class="card-foot">品質にこだわった部品</span>
+					</article>
+					<article class="value-card">
+						<span class="num">02 / 価格</span>
+						<h3>競争力あるOEM価格</h3>
+						<p>品質を維持しながら、競争力のあるOEM価格をご提案いたします。</p>
+						<img class="value-card-image" src="img/phx/product/empo.jpg" alt="PHOENIXのOEM価格">
+						<span class="card-foot">競争力ある価格をご提案</span>
+					</article>
+					<article class="value-card">
+						<span class="num">03 / 実績</span>
+						<h3>日本市場での実績</h3>
+						<p>日本市場への10年にわたる供給実績を生かし、製造から輸出・納品、アフターサービスまで、安心してお任せいただける体制を整えています。</p>
+						<img class="value-card-image" src="img/phx/product/box.jpg" alt="PHOENIXの日本向け輸出実績">
+						<span class="card-foot">日本市場での10年の実績</span>
+					</article>
+				</div>
+				<p class="value-note">※ OEM価格、部品構成および日本向け仕様は、モデル・ご注文数量・必要な認証・物流条件を確認のうえ、個別にお見積もりいたします。</p>
+			</div>
+			<div class="footer"><span>PHOENIX・選ばれる理由</span><span class="page-no">04 / 08</span></div>
+		</section>
+
+		<section class="sheet" id="page-5" aria-label="5ページ目 アンダーカウンター型食器洗浄機">
+			<div class="sheet-inner">
+				<p class="kicker">アンダーカウンター型食器洗浄機・PDW400</p>
+				<h2>コンパクトな設計で、力強く洗浄。</h2>
+				<p class="lead">限られた厨房スペースでも効率よく使えるアンダーカウンター型モデルです。長年培った製造ノウハウを生かし、貴社のご要望に合わせた製品をご提案します。</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW400・アンダーカウンター型</span>
+						<img class="main-product" src="img/phx/product/product_detail_undercounter-2.jpg" alt="PHOENIX PDW400 アンダーカウンター型食器洗浄機 正面">
+						<div class="product-inset"><img src="img/phx/product/product_detail_undercounter-1.jpg" alt="ドアを開けたPDW400の洗浄槽"><span>洗浄槽</span></div>
+						<span class="size-callout">600 × 600 × 800 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>アンダーカウンター型・日本の小規模厨房に適した設計</h3>
+						<p class="summary">スペースに限りのある飲食店・カフェ・バー・ベーカリーに適しています。ドアの自動・手動切替機能と三重の安全装置を備え、使いやすさと安全性に配慮しました。</p>
+						<div class="features">
+							<div class="feature"><strong>コンパクト</strong><span>600 × 600 × 800 mm</span></div>
+							<div class="feature"><strong>処理能力</strong><span>標準ラック52個／時</span></div>
+							<div class="feature"><strong>洗浄時間</strong><span>20～99秒で設定可能</span></div>
+							<div class="feature"><strong>ドア OPEN</strong><span>自動・手動切替</span></div>
+						</div>
+						<table class="specs" aria-label="PDW400の主な仕様">
+							<tbody>
+								<tr><th>型式</th><td>PDW400</td></tr>
+								<tr><th>標準処理能力</th><td>ラック52個／時<br><small>カップ1,872個／皿1,040枚</small></td></tr>
+								<tr><th>洗浄／すすぎ時間</th><td>20～99秒／2～30秒</td></tr>
+								<tr><th>洗浄水量</th><td>400 L/分</td></tr>
+								<tr><th>すすぎ水量</th><td>30 L/分</td></tr>
+								<tr><th>最大消費電力</th><td>4.6 kW/h</td></tr>
+								<tr><th>電源</th><td>単相100V／60Hz</td></tr>
+								<tr><th>洗浄／すすぎ水温</th><td>20～75°C／20～90°C</td></tr>
+								<tr><th>洗剤残留</th><td>なし</td></tr>
+								<tr><th>安全装置</th><td>三重の安全装置</td></tr>
+							</tbody>
+						</table>
+						<p class="spec-note">※ 日本向けの電圧・周波数仕様については、事前にご相談ください。</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX・製品概要</span><span class="page-no">05 / 08</span></div>
+		</section>
+
+		<section class="sheet" id="page-6" aria-label="6ページ目 ドアスライド式食器洗浄機">
+			<div class="sheet-inner">
+				<p class="kicker">ドアスライド式食器洗浄機・PDW450</p>
+				<h2>高い処理能力と、省スペース設計。</h2>
+				<p class="lead">ドアをスライドさせて開閉する省スペース設計の業務用モデルです。標準ラックを毎時52個処理でき、忙しい厨房の洗浄作業を支えます。</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW450・ドアスライド式</span>
+						<img class="main-product" src="img/phx/product/product_detail_Hatch.jpg" alt="PHOENIX PDW450 ドアスライド式食器洗浄機">
+						<div class="product-inset"><img src="img/phx/product/product_detail_Hatch-2.jpg" alt="PDW450 ドアスライド式食器洗浄機 詳細"><span>スライドドア設計</span></div>
+						<span class="size-callout">660 × 600 × 1,350 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>スライドドアを採用した業務用食器洗浄機</h3>
+						<p class="summary">ドアを開けても本体上部にせり上がらないため、上部の空間を有効に使えます。ドアの自動・手動切替スイッチを備えています。</p>
+						<div class="features">
+							<div class="feature"><strong>処理能力</strong><span>標準ラック52個／時</span></div>
+							<div class="feature"><strong>ドア</strong><span>スライドドア</span></div>
+							<div class="feature"><strong>洗浄時間</strong><span>20～99秒で設定可能</span></div>
+							<div class="feature"><strong>ドア OPEN</strong><span>自動・手動切替</span></div>
+						</div>
+						<table class="specs" aria-label="PDW450の主な仕様">
+							<tbody>
+								<tr><th>型式</th><td>PDW450</td></tr>
+								<tr><th>標準処理能力</th><td>ラック52個／時<br><small>カップ1,872個／皿1,040枚</small></td></tr>
+								<tr><th>外形寸法</th><td>660 × 600 × 1,350 mm</td></tr>
+								<tr><th>洗浄水量</th><td>400 L/分</td></tr>
+								<tr><th>すすぎ水量</th><td>30 L/分</td></tr>
+								<tr><th>最大消費電力</th><td>4.6 kW/h</td></tr>
+								<tr><th>電源</th><td>単相100V／60Hz</td></tr>
+								<tr><th>洗浄／すすぎ水温</th><td>20～75°C／20～90°C</td></tr>
+								<tr><th>洗剤残留</th><td>なし</td></tr>
+								<tr><th>安全装置</th><td>三重の安全装置</td></tr>
+							</tbody>
+						</table>
+						<p class="spec-note">※ 日本向けの電圧・周波数仕様については、事前にご相談ください。</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX・製品概要</span><span class="page-no">06 / 08</span></div>
+		</section>
+
+		<section class="sheet" id="page-7" aria-label="7ページ目 OEMカスタマイズ・サポート">
+			<div class="sheet-inner">
+				<p class="kicker">OEMカスタマイズ・サポート</p>
+				<h2>貴社のブランドを、私たちの製造力で。</h2>
+				<p class="lead">ブランド表示から日本語UIまで、貴社の販売方法や市場のニーズに合わせたOEM・ODMの協力内容をともに検討します。</p>
+				<div class="oem-layout">
+					<div class="oem-left">
+						<h3>OEMカスタマイズ</h3>
+						<div class="custom-grid">
+							<div class="custom-item"><b>01 / ブランド</b><strong>ブランド・ロゴの表示</strong><span>ブランドの表示位置や方法をご相談のうえ決定します。</span></div>
+							<div class="custom-item"><b>02 / デザイン</b><strong>前面パネル・外観</strong><span>基本モデルをもとに、デザインの変更範囲を検討します。</span></div>
+							<div class="custom-item"><b>03 / 操作</b><strong>日本語表示・UI</strong><span>操作パネルの表示や案内文を日本語に対応させます。</span></div>
+							<div class="custom-item"><b>04 / 梱包</b><strong>パッケージ・取扱説明書</strong><span>OEM専用パッケージや日本語資料の制作についてご相談します。</span></div>
+						</div>
+					</div>
+					<div class="support-panel">
+						<h3>技術サポート</h3>
+						<div class="support-item"><span class="icon">2Y</span><div><strong>部品保証（2年間）</strong><p>保証期間内（2年間）に部品の不具合が確認された場合、該当部品を無償で提供いたします。</p></div></div>
+						<div class="support-item"><span class="icon">SP</span><div><strong>補修部品の供給</strong><p>保守に必要な主要消耗品・重要部品の供給体制についてご相談します。</p></div></div>
+						<div class="support-item"><span class="icon">WL</span><div><strong>溶接部の不具合への対応</strong><p>溶接部に保証期間内（2年間）の不具合が生じた場合の補償内容・金額は、双方協議のうえ決定します。</p></div></div>
+						<div class="support-item"><span class="icon">TD</span><div><strong>技術資料</strong><p>製品図面・部品情報・日本語の技術資料について、提供範囲をご相談します。</p></div></div>
+						<p class="warranty">※ カスタマイズの範囲、最小発注数量、納期および保証条件は、モデルや契約条件により異なります。事前の技術確認を経て、最終契約で確定します。</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX・OEM／ODM</span><span class="page-no">07 / 08</span></div>
+		</section>
+
+		<section class="sheet partnership" id="page-8" aria-label="8ページ目 パートナーシップ・お問い合わせ">
+			<div class="sheet-inner">
+				<p class="kicker">パートナーシップ</p>
+				<h2>日本で、ともに食器洗浄機ブランドを育てる。</h2>
+				<p class="lead">製品をお届けするだけでなく、日本市場で貴社のブランドが成長するよう、ともに歩む韓国のOEM製造パートナーを目指します。</p>
+				<div class="partner-banner">
+					<span>貴社のブランド・私たちの製造力</span>
+					<strong>確かなアフターサービス、納期の順守、<br/>競争力ある価格で<br>OEM・ODMの製造を支援いたします。</strong>
+				</div>
+				<div class="contact-bottom">
+					<div class="partner-points">
+						<div class="partner-point"><b>27年</b><span>食器洗浄機の製造実績</span></div>
+						<div class="partner-point"><b>10年</b><span>日本市場への輸出実績</span></div>
+						<div class="partner-point"><b>韓国製</b><span>韓国国内の製造体制</span></div>
+					</div>
+					<div class="contact-card">
+						<div>
+							<div class="contact-label">OEM・ODMのお問い合わせ</div>
+							<strong>PHOENIX Co., Ltd.</strong>
+							<p>日本語でのお問い合わせ<a href="tel:821071102295">+82+10-7110-2295</a><br>工場・本社：大韓民国 京畿道 利川市 牟可面 チンサンミ路1073-17<br><a href="http://www.phx.co.kr" target="_blank">www.phx.co.kr →</a></p>
+						</div>
+						<a href="http://www.phx.co.kr" aria-label="公式ウェブサイト www.phx.co.kr"><img class="brand-mark-end" src="img/phx/logo-gold.png" alt="PHOENIXロゴ"></a>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX・韓国製・OEM／ODM</span><span class="page-no">08 / 08</span></div>
+		</section>
+	</main>
+
+	<script>
+		(() => {
+			const pages = [...document.querySelectorAll(".sheet")];
+			const counter = document.getElementById("page-count");
+			let currentPage = 0;
+
+			const updatePage = (index, shouldScroll = false) => {
+				currentPage = Math.max(0, Math.min(pages.length - 1, index));
+				counter.textContent = `${currentPage + 1} / ${pages.length}`;
+				if (shouldScroll) pages[currentPage].scrollIntoView({ behavior: "smooth", block: "start" });
+			};
+
+			document.getElementById("previous").addEventListener("click", () => updatePage(currentPage - 1, true));
+			document.getElementById("next").addEventListener("click", () => updatePage(currentPage + 1, true));
+			document.getElementById("print").addEventListener("click", () => window.print());
+
+			const observer = new IntersectionObserver((entries) => {
+				const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+				if (visible) updatePage(pages.indexOf(visible.target));
+			}, { threshold: [0.35, 0.6, 0.85] });
+
+			pages.forEach((page) => observer.observe(page));
+			document.addEventListener("keydown", (event) => {
+				if (event.key === "ArrowRight" || event.key === "PageDown") updatePage(currentPage + 1, true);
+				if (event.key === "ArrowLeft" || event.key === "PageUp") updatePage(currentPage - 1, true);
+			});
+		})();
+	</script>
+</body>
+</html>
