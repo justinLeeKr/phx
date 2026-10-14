@@ -100,7 +100,7 @@
 			letter-spacing: -.045em;
 			line-height: 1.12;
 		}
-		.lead { max-width: 680px; margin-bottom: 22px; color: var(--muted); font-size: 14px; line-height: 1.7; }
+		.lead { max-width: 1200px; margin-bottom: 22px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 		.en-title { display: block; margin-bottom: 7px; color: var(--blue); font-size: 10px; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
 		.footer {
 			position: absolute;
@@ -121,8 +121,8 @@
 		.cover { background: var(--navy); color: white; }
 		.cover::before {
 			position: absolute;
-			inset: 0 0 0 43%;
-			background: linear-gradient(90deg, var(--navy) 0%, rgba(16,29,54,.16) 34%, rgba(16,29,54,0) 65%), url("img/phx/backgrounds/sub_undercounter.jpg") center / cover;
+			inset: 0;
+			background: linear-gradient(90deg, var(--navy) 0%, rgba(16,29,54,.16) 34%, rgba(16,29,54,0) 65%), linear-gradient(180deg, var(--navy) 0%, var(--navy) 37%, rgba(16,29,54,.92) 44%, rgba(16,29,54,.62) 56%, rgba(16,29,54,.2) 72%, rgba(16,29,54,0) 88%), url("img/phx/backgrounds/sub_undercounter.jpg") center bottom / 140% auto no-repeat;
 			content: "";
 			opacity: .9;
 		}
@@ -255,6 +255,9 @@
 		.custom-item b { display: block; margin-bottom: 7px; color: var(--blue); font-size: 9px; letter-spacing: .14em; }
 		.custom-item strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 12px; }
 		.custom-item span { color: var(--muted); font-size: 10px; line-height: 1.5; }
+		.control-panel-visual { margin-top: 16px; }
+		.control-panel-visual h4 { margin: 0 0 8px; color: var(--navy); font-size: 13px; }
+		.control-panel-visual img { display: block; width: 100%; max-height: 150px; object-fit: contain; background: white; }
 		.support-panel { display: flex; flex-direction: column; background: var(--navy); color: white; }
 		.support-panel h3 { color: white; }
 		.support-item { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.16); }
@@ -360,17 +363,34 @@
 				print-color-adjust: exact;
 			}
 			.sheet:last-child { break-after: auto; page-break-after: auto; }
-			.sheet-inner { padding: 11mm 18.7mm 10mm; }
+			.sheet-inner { width: 100%; min-height: 0; padding: 11mm 18.7mm 10mm; }
 			.footer { right: 18.7mm; bottom: 5.5mm; left: 18.7mm; }
-			.cover .sheet-inner { padding: 11mm 18.7mm 10mm; }
+			.cover .sheet-inner { min-height: 0; padding: 11mm 18.7mm 10mm; }
+			.cover-copy { width: 57%; }
 			.partnership .sheet-inner { padding-top: 10mm; }
+			.stats { grid-template-columns: repeat(4, 1fr); }
+			.photo-strip { min-height: 105px; grid-template-columns: repeat(3, 1fr); }
+			.company-highlights { grid-template-columns: .78fr 1.22fr; }
+			.company-photo-grid { min-height: 135px; grid-template-columns: 1.12fr .88fr; }
+			.company-bottom { grid-template-columns: 1fr 1.15fr; }
+			.value-grid { grid-template-columns: repeat(3, 1fr); }
+			.product-layout { grid-template-columns: 1.12fr .88fr; }
+			.product-visual { min-height: 0; }
+			.pdw-spec-layout { grid-template-columns: .9fr 1.1fr; }
+			.pdw-drawings { height: 100%; min-height: 0; grid-template-columns: 1fr; grid-template-rows: none; }
+			.pdw-drawing { height: 100%; }
+			.pdw-drawing-image { flex: 1; aspect-ratio: auto; }
+			.oem-layout { grid-template-columns: 1.1fr .9fr; }
+			.contact-bottom { grid-template-columns: 1.1fr .9fr; }
+			.partner-points { grid-template-columns: repeat(3, 1fr); }
+			.partner-banner { aspect-ratio: 2000 / 730; justify-content: center; min-height: 300px; padding: 20px 25px; background-size: auto 42%, 100% 100%, auto; background-position: right center, center, center; }
 		}
 	</style>
 </head>
 <body>
 	<nav class="toolbar" aria-label="제안서 도구">
 		<button type="button" id="previous" aria-label="이전 페이지">← 이전</button>
-		<span class="toolbar-count" id="page-count" aria-live="polite">1 / 9</span>
+		<span class="toolbar-count" id="page-count" aria-live="polite">1 / 10</span>
 		<button type="button" id="next" aria-label="다음 페이지">다음 →</button>
 		<button type="button" class="print" id="print">PDF / 인쇄</button>
 	</nav>
@@ -392,7 +412,7 @@
 					<p class="cover-note">Compact undercounter solution<br>for space-conscious kitchens</p>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · JAPAN OEM PROPOSAL</span><span class="page-no">01 / 09</span></div>
+			<div class="footer"><span>PHOENIX · JAPAN OEM PROPOSAL</span><span class="page-no">01 / 10</span></div>
 		</section>
 
 		<section class="sheet" id="page-2" aria-label="2페이지 회사 개요 및 제조 경쟁력">
@@ -432,7 +452,7 @@
 				</div>
 				<p class="company-disclaimer">※ 특허 18건, 조달청 종합쇼핑몰(MAS) 등재, ISO 9001·전기안전·유럽 전기안전 인증 및 으뜸상품 선정</p>
 			</div>
-			<div class="footer"><span>PHOENIX · COMPANY OVERVIEW</span><span class="page-no">02 / 09</span></div>
+			<div class="footer"><span>PHOENIX · COMPANY OVERVIEW</span><span class="page-no">02 / 10</span></div>
 		</section>
 
 		<section class="sheet" id="page-3" aria-label="3페이지 회사 및 일본 수출 경험">
@@ -452,7 +472,7 @@
 					<div class="photo-card"><img src="img/phx/portfolio/equipment_3.jpg" alt="피닉스 생산 현장"><span>MADE IN KOREA</span></div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · COMPANY PROFILE</span><span class="page-no">03 / 09</span></div>
+			<div class="footer"><span>PHOENIX · COMPANY PROFILE</span><span class="page-no">03 / 10</span></div>
 		</section>
 
 		<section class="sheet" id="page-4" aria-label="4페이지 피닉스 선택 이유">
@@ -485,7 +505,7 @@
 				</div>
 				<p class="value-note">※ OEM 공급 가격, 부품 구성 및 일본 적용 사양은 모델·주문 수량·요구 인증·물류 조건을 확인한 후 별도 견적으로 제안합니다.</p>
 			</div>
-			<div class="footer"><span>PHOENIX · OUR ADVANTAGE</span><span class="page-no">04 / 09</span></div>
+			<div class="footer"><span>PHOENIX · OUR ADVANTAGE</span><span class="page-no">04 / 10</span></div>
 		</section>
 
 		<section class="sheet" id="page-5" aria-label="5페이지 언더카운터 식기세척기">
@@ -517,17 +537,17 @@
 								<tr><th>세척수용량</th><td>400 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>헹굼수용량</th><td>30 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>최대 사용 전력</th><td>4.6 kW/h</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 단상 100 V · 60 Hz (서일본)<br>단상 100 V · 50 Hz (동일본)</td></tr>
+								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 								<tr><th>세척 / 헹굼수 온도</th><td>20–75°C / 20–90°C</td></tr>
 								<tr><th>세제 잔류량</th><td>없음</td></tr>
 								<tr><th>안전장치</th><td>3중 안전장치</td></tr>
 							</tbody>
 						</table>
-						<p class="spec-note">※ 일본 적용 전압 및 주파수 사양은 사전 협의사항 입니다.</p>
+						<p class="spec-note">※ 일본 적용 전압 및 주파수(100 V / 200 V · 50 Hz / 60 Hz) 지원.</p>
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">05 / 09</span></div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">05 / 10</span></div>
 		</section>
 
 		<section class="sheet" id="page-6" aria-label="6페이지 PDW400 도면 및 상세 사양">
@@ -565,7 +585,7 @@
 								<tr><th>Washing Heat Power</th><td>1,8 kW (220 V)<br>2,2 kW (240 V)</td></tr>
 								<tr><th>Rinsing Heat Power</th><td>4,35 kW (220 V)<br>5,17 kW (240 V)</td></tr>
 								<tr><th>Max. Noise / Loading Height</th><td>65 dBA / 390 mm</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 단상 100 V · 60 Hz (서일본)<br>단상 100 V · 50 Hz (동일본)</td></tr>
+								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 							</tbody></table>
 						</section>
 						<section class="pdw-spec-group">
@@ -581,7 +601,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PDW400 SPECIFICATIONS</span><span class="page-no">06 / 09</span></div>
+			<div class="footer"><span>PHOENIX · PDW400 SPECIFICATIONS</span><span class="page-no">06 / 10</span></div>
 		</section>
 
 		<section class="sheet" id="page-7" aria-label="7페이지 해치형 식기세척기">
@@ -613,20 +633,74 @@
 								<tr><th>세척수용량</th><td>400 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>헹굼수용량</th><td>30 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>최대 사용 전력</th><td>4.6 kW/h</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 단상 100 V · 60 Hz (서일본)<br>단상 100 V · 50 Hz (동일본)</td></tr>
+								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 								<tr><th>세척 / 헹굼수 온도</th><td>20–75°C / 20–90°C</td></tr>
 								<tr><th>세제 잔류량</th><td>없음</td></tr>
 								<tr><th>안전장치</th><td>3중 안전장치</td></tr>
 							</tbody>
 						</table>
-						<p class="spec-note">※ 일본 적용 전압 및 주파수 사양은 사전 협의사항 입니다.</p>
+						<p class="spec-note">※ 일본 적용 전압 및 주파수(100 V / 200 V · 50 Hz / 60 Hz) 지원.</p>
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">07 / 09</span></div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">07 / 10</span></div>
 		</section>
 
-		<section class="sheet" id="page-8" aria-label="8페이지 OEM 커스터마이징 및 지원">
+		<section class="sheet" id="page-8" aria-label="8페이지 PDW450 해치형 도면 및 상세 사양">
+			<div class="sheet-inner">
+				<p class="kicker">Hatch type dishwasher · PDW450</p>
+				<h2>Dimensions &amp; Technical Specifications</h2>
+				<p class="lead">PDW450 해치형 제품의 도면과 주요 사양을 확인하실 수 있습니다.</p>
+				<div class="pdw-spec-layout">
+					<div class="pdw-drawings" aria-label="PDW450 해치형 도면">
+						<figure class="pdw-drawing">
+							<div class="pdw-drawing-image">
+								<img src="img/phx/product/dimension_hatch.jpg" alt="PDW450 해치형 식기세척기 도면">
+							</div>
+						</figure>
+					</div>
+					<div class="pdw-specs">
+						<section class="pdw-spec-group">
+							<h3>치수 / 寸法</h3>
+							<table class="pdw-spec-table"><thead><tr><th></th><th>본체</th><th>포장</th></tr></thead><tbody>
+								<tr><th>폭 / 幅 (mm)</th><td>660</td><td>별도 협의</td></tr>
+								<tr><th>깊이 / 奥行 (mm)</th><td>600</td><td>별도 협의</td></tr>
+								<tr><th>높이 / 高さ (mm)</th><td>1,350</td><td>별도 협의</td></tr>
+								<tr><th>중량 / 重量 (kg)</th><td colspan="2">도면 및 견적 기준 확인</td></tr>
+								<tr><th>부피 / 体積 (m³)</th><td colspan="2">도면 기준 확인</td></tr>
+							</tbody></table>
+						</section>
+						<section class="pdw-spec-group">
+							<h3>기술 사양 / 技術仕様</h3>
+							<table class="pdw-spec-table"><tbody>
+								<tr><th>표준 세척 능력 (1시간)</th><td>52랙 (컵 1,872개 / 접시 1,040개)</td></tr>
+								<tr><th>세척 시간</th><td>20–99초 조절</td></tr>
+								<tr><th>도어 방식</th><td>슬라이드형 · 자동·수동 전환</td></tr>
+								<tr><th>세척수용량</th><td>400 L/min</td></tr>
+								<tr><th>헹굼수용량</th><td>30 L/min</td></tr>
+								<tr><th>최대 사용 전력</th><td>4.6 kW/h</td></tr>
+								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
+								<tr><th>세척 / 헹굼수 온도</th><td>20–75°C / 20–90°C</td></tr>
+							</tbody></table>
+						</section>
+						<section class="pdw-spec-group">
+							<h3>급수·배수 연결 / 給水・排水接続</h3>
+							<table class="pdw-spec-table"><tbody>
+								<tr><th>Cold Water Inlet</th><td>3/4 inch</td></tr>
+								<tr><th>Hot Water Inlet</th><td>3/4 inch</td></tr>
+								<tr><th>Water Inlet Pressure</th><td>2–4 bar</td></tr>
+								<tr><th>Dirty Water Discharge (Drain)</th><td>3/4 inch (Ø28 mm)</td></tr>
+								<tr><th>Protection Class</th><td>IPX5</td></tr>
+							</tbody></table>
+						</section>
+						<p class="pdw-spec-note">※ 포장 치수·중량은 최종 사양 협의 후 확정됩니다.</p>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PDW450 SPECIFICATIONS</span><span class="page-no">08 / 10</span></div>
+		</section>
+
+		<section class="sheet" id="page-9" aria-label="9페이지 OEM 커스터마이징 및 지원">
 			<div class="sheet-inner">
 				<p class="kicker">OEM customization &amp; support</p>
 				<h2>Your Brand. Our Manufacturing.</h2>
@@ -640,6 +714,10 @@
 							<div class="custom-item"><b>03 / CONTROL</b><strong>일본어 표시·UI</strong><span>조작부 표기와 안내 문구를 현지화합니다.</span></div>
 							<div class="custom-item"><b>04 / PACKAGING</b><strong>패키지·매뉴얼</strong><span>OEM 전용 포장과 일본어 자료 제작을 협의합니다.</span></div>
 						</div>
+						<div class="control-panel-visual">
+							<h4>Easy to use touch pannel</h4>
+							<img src="img/phx/product/pannel.jpg" alt="Easy to use touch pannel 컨트롤 패널 설명 이미지">
+						</div>
 					</div>
 					<div class="support-panel">
 						<h3>Technical Support</h3>
@@ -651,10 +729,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · OEM / ODM</span><span class="page-no">08 / 09</span></div>
+			<div class="footer"><span>PHOENIX · OEM / ODM</span><span class="page-no">09 / 10</span></div>
 		</section>
 
-		<section class="sheet partnership" id="page-9" aria-label="9페이지 파트너십 및 문의">
+		<section class="sheet partnership" id="page-10" aria-label="10페이지 파트너십 및 문의">
 			<div class="sheet-inner">
 				<p class="kicker">Partnership</p>
 				<h2>Let’s Build Your Dishwasher Brand in Japan.</h2>
@@ -679,7 +757,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · MADE IN KOREA · OEM / ODM</span><span class="page-no">09 / 09</span></div>
+			<div class="footer"><span>PHOENIX · MADE IN KOREA · OEM / ODM</span><span class="page-no">10 / 10</span></div>
 		</section>
 	</main>
 
