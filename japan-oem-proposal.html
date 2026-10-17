@@ -22,6 +22,7 @@
 
 		* { box-sizing: border-box; }
 		html { scroll-behavior: smooth; }
+		@page { size: A4 landscape; margin: 5mm 10mm; }
 		body {
 			margin: 0;
 			background: #e9edf2;
@@ -156,10 +157,10 @@
 		.stat { padding: 15px 16px 13px; border-top: 2px solid var(--blue); background: var(--soft); }
 		.stat strong { display: block; margin-bottom: 5px; color: var(--navy); font-size: 25px; font-weight: 900; letter-spacing: -.04em; }
 		.stat span { display: block; color: var(--muted); font-size: 10px; line-height: 1.45; }
-		.photo-strip { display: grid; flex: 1; min-height: 105px; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-		.photo-card { position: relative; overflow: hidden; background: #dce4ed; }
-		.photo-card img { width: 100%; height: 100%; object-fit: cover; }
-		.photo-card span { position: absolute; z-index: 1; bottom: 12px; left: 13px; color: white; font-size: 11px; font-weight: 700; }
+		.photo-strip { display: grid; flex: 1; min-height: 105px; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+		.photo-card { position: relative; overflow: hidden; min-width: 0; border: 1px solid #0878df; background: #bfc0c2; padding: 1px; }
+		.photo-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+		.photo-card span { position: absolute; z-index: 1; top: 29px; left: -39px; width: 158px; padding: 8px 6px; transform: rotate(-45deg); background: #ffbd00; color: #092d65; font-size: 11px; font-weight: 600; letter-spacing: -.02em; line-height: 1.15; text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
 
 		/* Company overview */
 		.company-highlights { display: grid; flex: 1; min-height: 0; grid-template-columns: .78fr 1.22fr; gap: 15px; }
@@ -171,9 +172,9 @@
 		.proof-stat strong { color: var(--cyan); font-size: 22px; font-weight: 900; white-space: nowrap; }
 		.proof-stat span { color: rgba(255,255,255,.75); font-size: 9px; text-align: right; }
 		.company-floor { display: grid; min-height: 0; grid-template-rows: 1fr auto; gap: 10px; }
-		.company-photo-grid { display: grid; min-height: 135px; grid-template-columns: 1.12fr .88fr; gap: 9px; }
+		.company-photo-grid { display: grid; min-height: 135px; grid-template-columns: 1fr; gap: 9px; }
 		.company-photo { position: relative; min-height: 0; overflow: hidden; background: #dce4ed; }
-		.company-photo img { width: 100%; height: 100%; object-fit: cover; }
+		.company-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 		.company-photo span { position: absolute; z-index: 1; right: 10px; bottom: 10px; left: 10px; color: white; font-size: 9px; font-weight: 750; line-height: 1.4; }
 		.company-milestones { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 		.company-milestone { padding: 9px 10px; border-top: 2px solid var(--blue); background: var(--soft); }
@@ -225,6 +226,12 @@
 		.specs th, .specs td { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.4; }
 		.specs th { width: 34%; color: var(--muted); font-weight: 600; }
 		.specs td { color: var(--navy); font-weight: 750; }
+		.specs-dense { font-size: 9px; }
+		.specs-dense th, .specs-dense td { padding: 3.5px 5px; line-height: 1.28; }
+		.specs-dense th { width: 42%; }
+		.features-compact .feature { min-height: 52px; padding: 7px; }
+		.features-compact .feature strong { margin-bottom: 3px; font-size: 8px; }
+		.features-compact .feature span { font-size: 10px; }
 		.spec-note { margin: 9px 0 0; color: var(--muted); font-size: 9px; line-height: 1.55; }
 		/* PDW400 drawing and specifications */
 		.pdw-spec-layout { display: grid; flex: 1; min-height: 0; grid-template-columns: .9fr 1.1fr; gap: 14px; }
@@ -255,14 +262,17 @@
 		.custom-item b { display: block; margin-bottom: 7px; color: var(--blue); font-size: 9px; letter-spacing: .14em; }
 		.custom-item strong { display: block; margin-bottom: 4px; color: var(--navy); font-size: 12px; }
 		.custom-item span { color: var(--muted); font-size: 10px; line-height: 1.5; }
-		.control-panel-visual { margin-top: 16px; }
-		.control-panel-visual h4 { margin: 0 0 8px; color: var(--navy); font-size: 13px; }
-		.control-panel-visual img { display: block; width: 100%; max-height: 150px; object-fit: contain; background: white; }
+		.control-panel-title { margin: 16px 0 10px; color: var(--navy); font-size: 15px; }
+		.control-panel-visual { background: white; }
+		.control-panel-visual img { display: block; width: 100%; max-height: 190px; object-fit: contain; background: white; }
+		.control-panel-feature { padding: 10px 12px 12px; border-top: 1px solid #d8e0e9; background: white; }
+		.control-panel-feature h5 { margin: 0 0 5px; color: var(--navy); font-size: 12px; }
+		.control-panel-feature p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
 		.support-panel { display: flex; flex-direction: column; background: var(--navy); color: white; }
 		.support-panel h3 { color: white; }
 		.support-item { display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 9px 0; border-top: 1px solid rgba(255,255,255,.16); }
 		.support-item .icon { display: grid; width: 28px; height: 28px; place-items: center; border: 1px solid rgba(169,221,237,.65); border-radius: 50%; color: var(--cyan); font-size: 10px; font-weight: 800; }
-		.support-item strong { display: block; margin: 1px 0 4px; color: white; font-size: 10px; }
+		.support-item strong { display: block; margin: 1px 0 5px; color: var(--cyan); font-size: 12px; font-weight: 800; line-height: 1.3; }
 		.support-item p { margin: 0; color: rgba(255,255,255,.7); font-size: 9px; line-height: 1.45; }
 		.warranty { margin-top: auto; padding: 10px 11px; background: rgba(255,255,255,.09); color: rgba(255,255,255,.78); font-size: 9px; line-height: 1.55; }
 
@@ -346,13 +356,12 @@
 			.footer { right: 24px; left: 24px; }
 		}
 		@media print {
-			@page { size: A4 landscape; margin: 0; }
-			html, body { width: 297mm; margin: 0; background: white; }
+			html, body { width: 277mm; margin: 0; background: white; }
 			.toolbar { display: none !important; }
 			.deck { padding: 0; }
 			.sheet {
-				width: 297mm;
-				height: 210mm;
+				width: 277mm;
+				height: 198mm;
 				min-height: 0;
 				margin: 0;
 				aspect-ratio: auto;
@@ -363,15 +372,15 @@
 				print-color-adjust: exact;
 			}
 			.sheet:last-child { break-after: auto; page-break-after: auto; }
-			.sheet-inner { width: 100%; min-height: 0; padding: 11mm 18.7mm 10mm; }
-			.footer { right: 18.7mm; bottom: 5.5mm; left: 18.7mm; }
-			.cover .sheet-inner { min-height: 0; padding: 11mm 18.7mm 10mm; }
+			.sheet-inner { width: 100%; min-height: 0; padding: 5.5mm 8.7mm; }
+			.footer { right: 8.7mm; bottom: 5.5mm; left: 8.7mm; }
+			.cover .sheet-inner { min-height: 0; padding: 5.5mm 8.7mm; }
 			.cover-copy { width: 57%; }
-			.partnership .sheet-inner { padding-top: 10mm; }
+			.partnership .sheet-inner { padding-top: 5.5mm; }
 			.stats { grid-template-columns: repeat(4, 1fr); }
-			.photo-strip { min-height: 105px; grid-template-columns: repeat(3, 1fr); }
+			.photo-strip { min-height: 105px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 			.company-highlights { grid-template-columns: .78fr 1.22fr; }
-			.company-photo-grid { min-height: 135px; grid-template-columns: 1.12fr .88fr; }
+			.company-photo-grid { min-height: 135px; grid-template-columns: 1fr; }
 			.company-bottom { grid-template-columns: 1fr 1.15fr; }
 			.value-grid { grid-template-columns: repeat(3, 1fr); }
 			.product-layout { grid-template-columns: 1.12fr .88fr; }
@@ -390,7 +399,7 @@
 <body>
 	<nav class="toolbar" aria-label="제안서 도구">
 		<button type="button" id="previous" aria-label="이전 페이지">← 이전</button>
-		<span class="toolbar-count" id="page-count" aria-live="polite">1 / 10</span>
+		<span class="toolbar-count" id="page-count" aria-live="polite">1 / 18</span>
 		<button type="button" id="next" aria-label="다음 페이지">다음 →</button>
 		<button type="button" class="print" id="print">PDF / 인쇄</button>
 	</nav>
@@ -412,7 +421,7 @@
 					<p class="cover-note">Compact undercounter solution<br>for space-conscious kitchens</p>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · JAPAN OEM PROPOSAL</span><span class="page-no">01 / 10</span></div>
+			<div class="footer"><span>PHOENIX · JAPAN OEM PROPOSAL</span><span class="page-no">01 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-2" aria-label="2페이지 회사 개요 및 제조 경쟁력">
@@ -430,19 +439,18 @@
 						<p class="proof-copy">피닉스는 식기세척기 분야의 지식재산과 축적된 기술을 통해 제품 개선과 제조 경쟁력의 기반으로 삼고 있습니다.</p>
 						<div>
 							<div class="proof-stat"><strong>1999</strong><span>식기세척기 전문 제조 시작</span></div>
-							<div class="proof-stat"><strong>18 PATENTS</strong><span>특허 등록 수</span></div>
 							<div class="proof-stat"><strong>2016</strong><span>일본 수출 개시</span></div>
+							<div class="proof-stat"><strong>18 PATENTS</strong><span>식기세척기 분야 특허 보유</span></div>
 						</div>
 					</div>
 					<div class="company-floor">
 						<div class="company-photo-grid" aria-label="생산 시설 및 설비">
-							<div class="company-photo"><img src="img/phx/portfolio/portfolio-1.jpg" alt="피닉스 제조 공장 내부"><span>피닉스 공장 내부</span></div>
-							<div class="company-photo"><img src="img/phx/portfolio/portfolio-6.jpg" alt="피닉스 제고 공장 입구"><span>피닉스 공장 입구</span></div>
+							<div class="company-photo"><img src="img/phx/portfolio/portfolio-8.jpg" alt="피닉스 제고 공장 입구"><span>피닉스 공장 입구</span></div>
 						</div>
 						<div class="company-milestones">
-							<div class="company-milestone"><b>2022</b><span>경기도 이천<br>신축 공장 이전</span></div>
+							<div class="company-milestone"><b>2022</b><span>경기도 이천시<br>신축 공장 이전</span></div>
 							<div class="company-milestone"><b>2023</b><span>자동화 레이저<br>용접 로봇 도입</span></div>
-							<div class="company-milestone"><b>2024</b><span>신형 절곡기<br>DDM 5020 도입</span></div>
+							<div class="company-milestone"><b>2024</b><span>신형 절곡기<br>(DDM 5020) 도입</span></div>
 						</div>
 					</div>
 				</div>
@@ -452,14 +460,14 @@
 				</div>
 				<p class="company-disclaimer">※ 특허 18건, 조달청 종합쇼핑몰(MAS) 등재, ISO 9001·전기안전·유럽 전기안전 인증 및 으뜸상품 선정</p>
 			</div>
-			<div class="footer"><span>PHOENIX · COMPANY OVERVIEW</span><span class="page-no">02 / 10</span></div>
+			<div class="footer"><span>PHOENIX · COMPANY OVERVIEW</span><span class="page-no">02 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-3" aria-label="3페이지 회사 및 일본 수출 경험">
 			<div class="sheet-inner">
 				<p class="kicker">Company &amp; proven experience</p>
 				<h2>27 Years of Manufacturing.<br>10 Years in Japan.</h2>
-				<p class="lead">1999년 설립 이후 업소용 식기세척기 한 분야에 집중해 왔습니다. 일본을 포함한 해외 시장에 제품을 공급하며, 다양한 주방 환경에서 필요한 제품 경험을 축적하고 있습니다.</p>
+				<p class="lead">1999년 설립 이후 업소용 식기세척기 한 분야에 집중해 왔습니다. 일본을 포함한 해외 시장에 제품을 공급하며, 다양한 주방 환경에서 필요한 경험을 축적하고 있습니다.</p>
 				<div class="stats">
 					<div class="stat"><strong>27 YEARS</strong><span>1999년부터 이어온<br>식기세척기 제조 경험</span></div>
 					<div class="stat"><strong>10 YEARS</strong><span>일본 시장 수출 및<br>현장 경험</span></div>
@@ -467,12 +475,13 @@
 					<div class="stat"><strong>OEM / ODM</strong><span>바이어 요구에 맞춘<br>제조 방식 협력</span></div>
 				</div>
 				<div class="photo-strip" aria-label="피닉스 제조 설비 이미지">
-					<div class="photo-card"><img src="img/phx/portfolio/equipment_1.jpg" alt="피닉스 제조 설비"><span>MANUFACTURING</span></div>
-					<div class="photo-card"><img src="img/phx/portfolio/equipment_2.jpg" alt="피닉스 생산 장비"><span>PRODUCTION CAPABILITY</span></div>
-					<div class="photo-card"><img src="img/phx/portfolio/equipment_3.jpg" alt="피닉스 생산 현장"><span>MADE IN KOREA</span></div>
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_1.jpg" alt="피닉스 로봇 용접기"><span>로봇 용접기</span></div>
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_2.jpg" alt="피닉스 파이버 레이저 절단기"><span>레이저 절단기</span></div>
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_3.jpg" alt="피닉스 디버링기"><span>디버링기</span></div>
+					<div class="photo-card"><img src="img/phx/portfolio/equipment_4.jpg" alt="피닉스 절곡기"><span>절곡기</span></div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · COMPANY PROFILE</span><span class="page-no">03 / 10</span></div>
+			<div class="footer"><span>PHOENIX · COMPANY PROFILE</span><span class="page-no">03 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-4" aria-label="4페이지 피닉스 선택 이유">
@@ -491,21 +500,21 @@
 					<article class="value-card">
 						<span class="num">02 / VALUE</span>
 						<h3>Competitive OEM Pricing</h3>
-						<p>저희는 품질을 유지하면서도 가장 경쟁력 있는 OEM 가격을 귀사에 제안드리겠습니다.</p>
-						<img class="value-card-image" src="img/phx/product/empo.jpg" alt="피닉스 OEM 가격 이미지">
+						<p>Phoenix는 품질을 유지하면서도 가장 경쟁력 있는 OEM 가격을 귀사에 제안드리겠습니다.</p>
+						<img class="value-card-image" src="img/phx/product/price.jpg" alt="피닉스 OEM 가격 이미지">
 						<span class="card-foot">BEST PRICE GUARANTEED</span>
 					</article>
 					<article class="value-card">
 						<span class="num">03 / EXPERIENCE</span>
 						<h3>Proven in Japan</h3>
-						<p>10년간 일본 시장에 제품을 공급해 온 경험을 바탕으로 제품의 생산, 수출 납품, A/S 등 신뢰 받는 서비스를 제공합니다.</p>
+						<p>10년간 일본 시장에 제품을 공급해 온 경험을 바탕으로 제품의 납품에서 A/S까지 신뢰 받는 서비스를 제공합니다.</p>
 						<img class="value-card-image" src="img/phx/product/box.jpg" alt="피닉스 일본 수출 경험 이미지">
 						<span class="card-foot">10 YEARS OF JAPAN EXPERIENCE</span>
 					</article>
 				</div>
 				<p class="value-note">※ OEM 공급 가격, 부품 구성 및 일본 적용 사양은 모델·주문 수량·요구 인증·물류 조건을 확인한 후 별도 견적으로 제안합니다.</p>
 			</div>
-			<div class="footer"><span>PHOENIX · OUR ADVANTAGE</span><span class="page-no">04 / 10</span></div>
+			<div class="footer"><span>PHOENIX · OUR ADVANTAGE</span><span class="page-no">04 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-5" aria-label="5페이지 언더카운터 식기세척기">
@@ -537,7 +546,7 @@
 								<tr><th>세척수용량</th><td>400 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>헹굼수용량</th><td>30 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>최대 사용 전력</th><td>4.6 kW/h</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
+								<tr><th>전원</th><td>일본 : 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 								<tr><th>세척 / 헹굼수 온도</th><td>20–75°C / 20–90°C</td></tr>
 								<tr><th>세제 잔류량</th><td>없음</td></tr>
 								<tr><th>안전장치</th><td>3중 안전장치</td></tr>
@@ -547,7 +556,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">05 / 10</span></div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">05 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-6" aria-label="6페이지 PDW400 도면 및 상세 사양">
@@ -585,7 +594,7 @@
 								<tr><th>Washing Heat Power</th><td>1,8 kW (220 V)<br>2,2 kW (240 V)</td></tr>
 								<tr><th>Rinsing Heat Power</th><td>4,35 kW (220 V)<br>5,17 kW (240 V)</td></tr>
 								<tr><th>Max. Noise / Loading Height</th><td>65 dBA / 390 mm</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
+								<tr><th>전원</th><td>일본 : 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 							</tbody></table>
 						</section>
 						<section class="pdw-spec-group">
@@ -601,7 +610,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PDW400 SPECIFICATIONS</span><span class="page-no">06 / 10</span></div>
+			<div class="footer"><span>PHOENIX · PDW400 SPECIFICATIONS</span><span class="page-no">06 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-7" aria-label="7페이지 해치형 식기세척기">
@@ -633,7 +642,7 @@
 								<tr><th>세척수용량</th><td>400 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>헹굼수용량</th><td>30 L/min <small>(리터/분)</small></td></tr>
 								<tr><th>최대 사용 전력</th><td>4.6 kW/h</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
+								<tr><th>전원</th><td>일본 : 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 								<tr><th>세척 / 헹굼수 온도</th><td>20–75°C / 20–90°C</td></tr>
 								<tr><th>세제 잔류량</th><td>없음</td></tr>
 								<tr><th>안전장치</th><td>3중 안전장치</td></tr>
@@ -643,7 +652,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">07 / 10</span></div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">07 / 18</span></div>
 		</section>
 
 		<section class="sheet" id="page-8" aria-label="8페이지 PDW450 해치형 도면 및 상세 사양">
@@ -679,7 +688,7 @@
 								<tr><th>세척수용량</th><td>400 L/min</td></tr>
 								<tr><th>헹굼수용량</th><td>30 L/min</td></tr>
 								<tr><th>최대 사용 전력</th><td>4.6 kW/h</td></tr>
-								<tr><th>전원 / 電源</th><td>일본 / 日本: 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
+								<tr><th>전원</th><td>일본 : 100 V / 200 V · 50 Hz / 60 Hz 지원</td></tr>
 								<tr><th>세척 / 헹굼수 온도</th><td>20–75°C / 20–90°C</td></tr>
 							</tbody></table>
 						</section>
@@ -697,10 +706,389 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · PDW450 SPECIFICATIONS</span><span class="page-no">08 / 10</span></div>
+			<div class="footer"><span>PHOENIX · PDW450 SPECIFICATIONS</span><span class="page-no">08 / 18</span></div>
 		</section>
 
-		<section class="sheet" id="page-9" aria-label="9페이지 OEM 커스터마이징 및 지원">
+		<section class="sheet" id="page-9" aria-label="9페이지 PDW5400-AL 로하스 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Door type dishwasher · Lohas</p>
+				<h2>Lohas · Hot Water, No Separate Boiler.</h2>
+				<p class="lead">별도 온수기 없이 사용할 수 있도록 구성한 도어형 모델입니다. 에너지 절감장치를 적용하고 시간당 표준 랙 52개를 처리합니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AL · LOHAS</span>
+						<img class="main-product" src="img/phx/product/product_detail_lohas-1.jpg" alt="피닉스 PDW5400-AL 로하스 식기세척기">
+						<div class="product-inset"><img src="img/phx/product/product_detail_lohas-2.jpg" alt="PDW5400-AL 로하스 세척 공간"><span>WASH CHAMBER</span></div>
+						<span class="size-callout">660 × 700 × 1,380 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>Lohas · 온수기 없이 사용하는 도어형</h3>
+						<p class="summary">기본 세척·헹굼 성능에 에너지 절감장치를 더해 상업용 주방의 연속적인 세척 작업을 지원합니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>CAPACITY</strong><span>표준 랙 52개 / 시간</span></div>
+							<div class="feature"><strong>WASH TIME</strong><span>30–90초 조절</span></div>
+							<div class="feature"><strong>RINSE TIME</strong><span>6–16초 조절</span></div>
+							<div class="feature"><strong>ENERGY SAVING</strong><span>절감장치 적용</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AL 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AL</td></tr>
+							<tr><th>특징</th><td>온수기 없이 사용 가능</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>52개</td></tr>
+							<tr><th>시간당 처리 능력 · 컵</th><td>1,872개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>1,040개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,800개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>416개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>660 × 700 × 1,380 mm</td></tr>
+							<tr><th>세척수 용량</th><td>400 L/min</td></tr>
+							<tr><th>헹굼수 용량</th><td>30 L/min</td></tr>
+							<tr><th>세척 시간</th><td>30–90초</td></tr>
+							<tr><th>헹굼 시간</th><td>6–16초</td></tr>
+							<tr><th>세척수 온도</th><td>65–75°C</td></tr>
+							<tr><th>헹굼수 온도</th><td>80–90°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>4.55 kW/h</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>에너지 절감 장치</th><td>적용</td></tr>
+							<tr><th>세제 잔류량</th><td>없음</td></tr>
+							<tr><th>안전 장치</th><td>적용</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">09 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-10" aria-label="10페이지 PDW5400-AP 프라임 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Door type dishwasher · Prime</p>
+				<h2>Prime · Extra Rinse Function.</h2>
+				<p class="lead">한 번 더 헹굼 기능을 갖춘 도어형 모델입니다. 표준 세척 사이클과 추가 헹굼으로 다양한 상업용 주방의 세척 요구에 대응합니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AP · PRIME</span>
+						<img class="main-product" src="img/phx/product/product_detail_prime-1.jpg" alt="피닉스 PDW5400-AP 프라임 식기세척기">
+						<div class="product-inset"><img src="img/phx/product/product_detail_prime-2.jpg" alt="PDW5400-AP 프라임 세척 공간"><span>WASH CHAMBER</span></div>
+						<span class="size-callout">660 × 700 × 1,380 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>Prime · 한 번 더 헹굼 기능</h3>
+						<p class="summary">시간당 표준 랙 52개를 처리하며, 추가 헹굼 기능으로 세척 후 마무리를 돕는 도어형 모델입니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>CAPACITY</strong><span>표준 랙 52개 / 시간</span></div>
+							<div class="feature"><strong>WASH TIME</strong><span>30–90초 조절</span></div>
+							<div class="feature"><strong>RINSE TIME</strong><span>6–16초 조절</span></div>
+							<div class="feature"><strong>EXTRA RINSE</strong><span>한 번 더 헹굼</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AP 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AP</td></tr>
+							<tr><th>특징</th><td>한 번 더 헹굼 기능</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>52개</td></tr>
+							<tr><th>시간당 처리 능력 · 컵</th><td>1,872개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>1,040개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,800개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>416개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>660 × 700 × 1,380 mm</td></tr>
+							<tr><th>세척수 용량</th><td>400 L/min</td></tr>
+							<tr><th>헹굼수 용량</th><td>30 L/min</td></tr>
+							<tr><th>세척 시간</th><td>30–90초</td></tr>
+							<tr><th>헹굼 시간</th><td>6–16초</td></tr>
+							<tr><th>세척수 온도</th><td>65–75°C</td></tr>
+							<tr><th>헹굼수 온도</th><td>80–90°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>3.75 kW/h</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>에너지 절감 장치</th><td>없음</td></tr>
+							<tr><th>세제 잔류량</th><td>없음</td></tr>
+							<tr><th>안전 장치</th><td>적용</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">10 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-11" aria-label="11페이지 PDW5400-AE 이코노믹 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Door type dishwasher · Economic</p>
+				<h2>Economic · Essential Cleaning. Everyday Value.</h2>
+				<p class="lead">업소용 식기세척기 도입의 문턱을 낮춘 경제형 모델입니다. 필수 기능 중심의 구성으로 초기 투자 부담을 줄이고, 소규모 음식점과 카페의 세척 업무를 효율적으로 지원합니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AE · ECONOMIC</span>
+						<img class="main-product" src="img/phx/product/product_detail_economic-1.jpg" alt="피닉스 PDW5400-AE 이코노믹 식기세척기">
+						<div class="product-inset"><img src="img/phx/product/product_detail_economic-2.jpg" alt="PDW5400-AE 이코노믹 세척 공간"><span>WASH CHAMBER</span></div>
+						<span class="size-callout">660 × 700 × 1,380 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>Economic · 합리적인 구성을 갖춘 도어형</h3>
+						<p class="summary">시간당 표준 랙 52개 처리와 기본 세척·헹굼 사양을 갖춘 실속형 모델입니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>CAPACITY</strong><span>표준 랙 52개 / 시간</span></div>
+							<div class="feature"><strong>WASH TIME</strong><span>30–90초 조절</span></div>
+							<div class="feature"><strong>RINSE TIME</strong><span>6–16초 조절</span></div>
+							<div class="feature"><strong>DIMENSION</strong><span>660 × 700 × 1,380 mm</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AE 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AE</td></tr>
+							<tr><th>특징</th><td>중저가의 실속형</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>52개</td></tr>
+							<tr><th>시간당 처리 능력 · 컵</th><td>1,872개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>1,040개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,800개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>416개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>660 × 700 × 1,380 mm</td></tr>
+							<tr><th>세척수 용량</th><td>400 L/min</td></tr>
+							<tr><th>헹굼수 용량</th><td>30 L/min</td></tr>
+							<tr><th>세척 시간</th><td>30–90초</td></tr>
+							<tr><th>헹굼 시간</th><td>6–16초</td></tr>
+							<tr><th>세척수 온도</th><td>65–75°C</td></tr>
+							<tr><th>헹굼수 온도</th><td>80–90°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>3.75 kW/h</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>에너지 절감 장치</th><td>없음</td></tr>
+							<tr><th>세제 잔류량</th><td>없음</td></tr>
+							<tr><th>안전 장치</th><td>적용</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">11 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-12" aria-label="12페이지 PDW5400-AS 스페셜 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Door type dishwasher · Special</p>
+				<h2>Special · Practical Performance.</h2>
+				<p class="lead">필수 세척 성능과 효율적인 구성을 갖춘 실속형 도어 타입 모델입니다. 음식점과 급식 주방의 일상적인 세척 작업에 적합합니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AS · SPECIAL</span>
+						<img class="main-product" src="img/phx/product/product_detail_special-1.jpg" alt="피닉스 PDW5400-AS 스페셜 식기세척기">
+						<div class="product-inset"><img src="img/phx/product/product_detail_special-2.jpg" alt="PDW5400-AS 세척 공간"><span>WASH CHAMBER</span></div>
+						<span class="size-callout">660 × 700 × 1,380 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>Special · 보급형 구성으로 실현한 합리적인 가격</h3>
+						<p class="summary">표준 랙을 시간당 최대 52개 처리하며, 세척·헹굼 시간을 주방 작업 흐름에 맞춰 조절할 수 있습니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>CAPACITY</strong><span>표준 랙 52개 / 시간</span></div>
+							<div class="feature"><strong>WASH TIME</strong><span>30–90초 조절</span></div>
+							<div class="feature"><strong>RINSE TIME</strong><span>6–16초 조절</span></div>
+							<div class="feature"><strong>DIMENSION</strong><span>660 × 700 × 1,380 mm</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AS 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AS</td></tr>
+							<tr><th>특징</th><td>중저가의 실속형</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>52개</td></tr>
+							<tr><th>시간당 처리 능력 · 컵</th><td>1,872개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>1,040개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,800개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>416개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>660 × 700 × 1,380 mm</td></tr>
+							<tr><th>세척수 용량</th><td>400 L/min</td></tr>
+							<tr><th>헹굼수 용량</th><td>30 L/min</td></tr>
+							<tr><th>세척 시간</th><td>30–90초</td></tr>
+							<tr><th>헹굼 시간</th><td>6–16초</td></tr>
+							<tr><th>세척수 온도</th><td>65–75°C</td></tr>
+							<tr><th>헹굼수 온도</th><td>80–90°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>3.75 kW/h</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>에너지 절감 장치</th><td>없음</td></tr>
+							<tr><th>세제 잔류량</th><td>없음</td></tr>
+							<tr><th>안전 장치</th><td>적용</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">12 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-13" aria-label="13페이지 PDW5400-AU12 초음파 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Ultrasonic bubble dishwasher · AU12</p>
+				<h2>Ultrasonic + Bubble (1200mm type)</h2>
+				<p class="lead">초음파가 만든 미세 기포와 에어버블의 작용으로 일반 수압 세척이 닿기 어려운 틈새와 기름때를 세척합니다. 과일·채소 전용 모드도 갖춰 식기부터 식재료까지 폭넓게 활용할 수 있습니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AU12 · ULTRASONIC</span>
+						<img class="main-product" src="img/phx/product/product_detail_ultrasonic.jpg" alt="피닉스 PDW5400-AU12 초음파 버블 식기세척기">
+						<span class="size-callout">1,200 × 710 × 980 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>초음파 버블 식기세척기 · 넉넉한 185 L 세척조</h3>
+						<p class="summary">세척 대상에 맞춰 초음파·버블 시간과 세기를 조절하고, 식기와 과일·채소 모드를 선택할 수 있습니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>WASH TANK</strong><span>185 L</span></div>
+							<div class="feature"><strong>FREQUENCY</strong><span>28 (40) kHz</span></div>
+							<div class="feature"><strong>ULTRASONIC</strong><span>1–108분 설정</span></div>
+							<div class="feature"><strong>BUBBLE</strong><span>0–15분 · 최대 18사이클</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AU12 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AU12</td></tr>
+							<tr><th>특징</th><td>초음파 + 버블 세척기</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>52개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>1,040개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,800개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>416개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>1,200 × 710 × 980 mm</td></tr>
+							<tr><th>세척조 용량</th><td>185 L</td></tr>
+							<tr><th>초음파 주파수</th><td>28 (40) kHz</td></tr>
+							<tr><th>발진기 출력</th><td>150–1,200 W</td></tr>
+							<tr><th>진동자</th><td>50 W × 24개</td></tr>
+							<tr><th>초음파 세척 시간</th><td>1–108분</td></tr>
+							<tr><th>버블 시간</th><td>0–15분</td></tr>
+							<tr><th>사이클 구성</th><td>(초음파 + 버블) × 3회 · 최대 18사이클</td></tr>
+							<tr><th>온도</th><td>40–55°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>2.5 kW (히터 1.5 kW)</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>활성제</th><td>1종 초음파 전용</td></tr>
+							<tr><th>안전 장치</th><td>수위·온도 센서 (물 부족 시 초음파·히터 정지)</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">13 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-14" aria-label="14페이지 PDW5400-AU9 초음파 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Ultrasonic bubble dishwasher · AU9</p>
+				<h2>Ultrasonic + Bubble (900mm type)</h2>
+				<p class="lead">초음파가 만든 미세 기포와 에어버블의 작용으로 일반 수압 세척이 닿기 어려운 틈새와 기름때를 세척합니다. 과일·채소 전용 모드도 갖춰 식기부터 식재료까지 폭넓게 활용할 수 있습니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AU9 · ULTRASONIC</span>
+						<img class="main-product" src="img/phx/product/product_detail_ultrasonic_au9.jpg" alt="피닉스 PDW5400-AU9 초음파 버블 식기세척기">
+						<span class="size-callout">900 × 710 × 980 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>초음파 버블 식기세척기 · 900 mm type</h3>
+						<p class="summary">세척 대상에 맞춰 초음파·버블 시간과 세기를 조절하고, 식기와 과일·채소 모드를 선택할 수 있습니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>WASH TANK</strong><span>140 L</span></div>
+							<div class="feature"><strong>FREQUENCY</strong><span>28 kHz</span></div>
+							<div class="feature"><strong>ULTRASONIC</strong><span>1–108분 설정</span></div>
+							<div class="feature"><strong>BUBBLE</strong><span>0–15분 · 최대 18사이클</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AU9 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AU9</td></tr>
+							<tr><th>특징</th><td>초음파 + 버블 세척기</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>40개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>780개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,350개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>312개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>900 × 710 × 980 mm</td></tr>
+							<tr><th>세척조 용량</th><td>140 L</td></tr>
+							<tr><th>초음파 주파수</th><td>28 kHz</td></tr>
+							<tr><th>발진기 출력</th><td>150–1,100 W</td></tr>
+							<tr><th>진동자</th><td>50 W × 24개</td></tr>
+							<tr><th>초음파 세척 시간</th><td>1–108분</td></tr>
+							<tr><th>버블 시간</th><td>0–15분</td></tr>
+							<tr><th>사이클 구성</th><td>(초음파 + 버블) × 3회 · 최대 18사이클</td></tr>
+							<tr><th>온도</th><td>40–55°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>2.5 kW (히터 1.5 kW)</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>활성제</th><td>1종 초음파 전용</td></tr>
+							<tr><th>안전 장치</th><td>수위·온도 센서 (물 부족 시 초음파·히터 정지)</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">14 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-15" aria-label="15페이지 PDW5400-AU7 초음파 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Ultrasonic bubble dishwasher · AU7</p>
+				<h2>Ultrasonic + Bubble (700mm type)</h2>
+				<p class="lead">초음파가 만든 미세 기포와 에어버블의 작용으로 일반 수압 세척이 닿기 어려운 틈새와 기름때를 세척합니다. 과일·채소 전용 모드도 갖춰 식기부터 식재료까지 폭넓게 활용할 수 있습니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW5400-AU7 · ULTRASONIC</span>
+						<img class="main-product" src="img/phx/product/product_detail_ultrasonic_au7.jpg" alt="피닉스 PDW5400-AU7 초음파 버블 식기세척기">
+						<span class="size-callout">700 × 710 × 980 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>초음파 버블 식기세척기 · 700 mm type</h3>
+						<p class="summary">세척 대상에 맞춰 초음파·버블 시간과 세기를 조절하고, 식기와 과일·채소 모드를 선택할 수 있습니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>WASH TANK</strong><span>110 L</span></div>
+							<div class="feature"><strong>FREQUENCY</strong><span>28 kHz</span></div>
+							<div class="feature"><strong>ULTRASONIC</strong><span>1–108분 설정</span></div>
+							<div class="feature"><strong>BUBBLE</strong><span>0–15분 · 최대 18사이클</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW5400-AU7 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW5400-AU7</td></tr>
+							<tr><th>특징</th><td>초음파 + 버블 세척기</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>30개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>580개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>1,000개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>234개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>700 × 710 × 980 mm</td></tr>
+							<tr><th>세척조 용량</th><td>110 L</td></tr>
+							<tr><th>초음파 주파수</th><td>28 kHz</td></tr>
+							<tr><th>발진기 출력</th><td>150–900 W</td></tr>
+							<tr><th>진동자</th><td>50 W × 16개</td></tr>
+							<tr><th>초음파 세척 시간</th><td>1–108분</td></tr>
+							<tr><th>버블 시간</th><td>0–15분</td></tr>
+							<tr><th>사이클 구성</th><td>(초음파 + 버블) × 3회 · 최대 18사이클</td></tr>
+							<tr><th>온도</th><td>40–55°C</td></tr>
+							<tr><th>최대 사용 전력</th><td>2.5 kW (히터 1.5 kW)</td></tr>
+							<tr><th>사용 전압</th><td>단상 220 V · 60 Hz (국가별 전압 조정 가능)</td></tr>
+							<tr><th>활성제</th><td>1종 초음파 전용</td></tr>
+							<tr><th>안전 장치</th><td>수위·온도 센서 (물 부족 시 초음파·히터 정지)</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">15 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-16" aria-label="16페이지 PDW9100G 랙컨베이어 제품 소개">
+			<div class="sheet-inner">
+				<p class="kicker">Rack conveyor dishwasher · PDW9100G</p>
+				<h2>Rack Conveyor · Continuous Rack Washing.</h2>
+				<p class="lead">랙을 연속으로 이송해 대량의 식기를 처리하는 랙컨베이어 타입입니다. 세척량이 많은 대형 식당과 단체 급식 주방에 적합합니다.</p>
+				<div class="product-layout">
+					<div class="product-visual">
+						<span class="visual-label">PDW9100G · RACK CONVEYOR</span>
+						<img class="main-product" src="img/phx/product/product_detail_conveyor.jpg" alt="피닉스 PDW9100G 랙컨베이어 식기세척기">
+						<span class="size-callout">1,340 × 700 × 1,500 mm</span>
+					</div>
+					<div class="product-copy">
+						<h3>Rack Conveyor · 대량 세척을 위한 연속 투입</h3>
+						<p class="summary">랙을 한 방향으로 연속 공급하는 구조로 세척 작업의 흐름을 유지하고, 대량 세척 환경의 처리 효율을 높입니다.</p>
+						<div class="features features-compact">
+							<div class="feature"><strong>CAPACITY</strong><span>표준 랙 180개 / 시간</span></div>
+							<div class="feature"><strong>APPLICATION</strong><span>대형 주방 · 단체 급식</span></div>
+							<div class="feature"><strong>DIMENSION</strong><span>1,340 × 700 × 1,500 mm</span></div>
+							<div class="feature"><strong>RINSE WATER</strong><span>18–20 L/min</span></div>
+						</div>
+						<table class="specs specs-dense" aria-label="PDW9100G 주요 사양"><tbody>
+							<tr><th>모델</th><td>PDW9100G</td></tr>
+							<tr><th>특징</th><td>대형 식당·대량 세척용 랙컨베이어</td></tr>
+							<tr><th>시간당 처리 능력 · 랙</th><td>180개</td></tr>
+							<tr><th>시간당 처리 능력 · 접시</th><td>3,600개</td></tr>
+							<tr><th>시간당 처리 능력 · 밥그릇</th><td>6,300개</td></tr>
+							<tr><th>시간당 처리 능력 · 식판</th><td>600개</td></tr>
+							<tr><th>규격 (폭 × 깊이 × 높이)</th><td>1,340 × 700 × 1,500 mm</td></tr>
+							<tr><th>세척 탱크 용량</th><td>80 L × 1</td></tr>
+							<tr><th>헹굼수 용량</th><td>18–20 L/min</td></tr>
+							<tr><th>세척 펌프</th><td>1.5 kW/h · 3상 × 1 (2 HP급)</td></tr>
+							<tr><th>히터</th><td>8 kW/h × 1</td></tr>
+							<tr><th>탱크 온도</th><td>60–70°C</td></tr>
+							<tr><th>컨베이어 속도</th><td>1.3 m/min</td></tr>
+							<tr><th>최대 사용 전력</th><td>10.55 kW/h</td></tr>
+							<tr><th>사용 전압</th><td>단상 380 V · 3상 4선식 · 60 Hz</td></tr>
+							<tr><th>물 소비량</th><td>620 L/h</td></tr>
+							<tr><th>가스 부스터</th><td>40,000 kcal/h</td></tr>
+							<tr><th>안전 장치</th><td>적용</td></tr>
+						</tbody></table>
+					</div>
+				</div>
+			</div>
+			<div class="footer"><span>PHOENIX · PRODUCT OVERVIEW</span><span class="page-no">16 / 18</span></div>
+		</section>
+
+		<section class="sheet" id="page-17" aria-label="17페이지 OEM 커스터마이징 및 지원">
 			<div class="sheet-inner">
 				<p class="kicker">OEM customization &amp; support</p>
 				<h2>Your Brand. Our Manufacturing.</h2>
@@ -714,9 +1102,13 @@
 							<div class="custom-item"><b>03 / CONTROL</b><strong>일본어 표시·UI</strong><span>조작부 표기와 안내 문구를 현지화합니다.</span></div>
 							<div class="custom-item"><b>04 / PACKAGING</b><strong>패키지·매뉴얼</strong><span>OEM 전용 포장과 일본어 자료 제작을 협의합니다.</span></div>
 						</div>
-						<div class="control-panel-visual">
-							<h4>Easy to use touch pannel</h4>
+		<h4 class="control-panel-title">Easy to use touch pannel</h4>
+		<div class="control-panel-visual">
 							<img src="img/phx/product/pannel.jpg" alt="Easy to use touch pannel 컨트롤 패널 설명 이미지">
+			<div class="control-panel-feature">
+				<h5>간편한 설정</h5>
+				<p>시작 버튼과 전원 버튼을 5초 이상 동시에 누르면 설정 모드로 진입합니다. 세척시간, 헹굼시간, 온도, 자동 배수, 도어 자동·수동 전환 등 다양한 기능을 간편하게 설정할 수 있으며, 이상 발생 시 LED 표시창을 통해 에러 코드를 확인할 수 있어 편리한 관리가 가능합니다.</p>
+			</div>
 						</div>
 					</div>
 					<div class="support-panel">
@@ -729,10 +1121,10 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · OEM / ODM</span><span class="page-no">09 / 10</span></div>
+			<div class="footer"><span>PHOENIX · OEM / ODM</span><span class="page-no">17 / 18</span></div>
 		</section>
 
-		<section class="sheet partnership" id="page-10" aria-label="10페이지 파트너십 및 문의">
+		<section class="sheet partnership" id="page-18" aria-label="18페이지 파트너십 및 문의">
 			<div class="sheet-inner">
 				<p class="kicker">Partnership</p>
 				<h2>Let’s Build Your Dishwasher Brand in Japan.</h2>
@@ -751,13 +1143,13 @@
 						<div>
 							<div class="contact-label">OEM / ODM INQUIRY</div>
 							<strong>PHOENIX Co., Ltd.</strong>
-							<p>일본어 전용 전화<a href="tel:821071102295">+82+10-7110-2295</a><br>공장 및 본사: 경기 이천시 모가면 진상미로 1073-17<br><a href="http://www.phx.co.kr" target="_blank">www.phx.co.kr →</a></p>
+							<p><a href="tel:821071102295">일본어 전용 전화 : +82+10-7110-2295</a><br>공장 및 본사: 경기 이천시 모가면 진상미로 1073-17<br><a href="http://www.phx.co.kr" target="_blank">www.phx.co.kr →</a></p>
 						</div>
 						<a href="http://www.phx.co.kr" aria-label="홈페이지 www.phx.co.kr"><img class="brand-mark-end" src="img/phx/logo-gold.png" alt="PHOENIX Logo"></a>
 					</div>
 				</div>
 			</div>
-			<div class="footer"><span>PHOENIX · MADE IN KOREA · OEM / ODM</span><span class="page-no">10 / 10</span></div>
+			<div class="footer"><span>PHOENIX · MADE IN KOREA · OEM / ODM</span><span class="page-no">18 / 18</span></div>
 		</section>
 	</main>
 
